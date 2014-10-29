@@ -7,4 +7,4 @@ todo:
 - travis
 - coveralls
 - pari user storyy
-     - maili (ryhmä, opiskellijanrot,  aihe, githubrepo)
+- maili (ryhmä, opiskellijanrot,  aihe, githubrepo)
