@@ -1,6 +1,8 @@
 royola
 ======
 
+[![Coverage Status](https://img.shields.io/coveralls/tmekkelisti/royola.svg)](https://coveralls.io/r/tmekkelisti/royola)
+
 todo:
 ------
 - aihe
