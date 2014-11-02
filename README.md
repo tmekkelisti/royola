@@ -6,7 +6,8 @@ royola
 
 Mitäeilentapahtu.com
 
-- Stooreja eiliseltä
+- Stooreja eiliseltä, sivusto joka koostuu eilisen tarinoista. Käyttäjillä mahdollisuus lukea tarinoita, kirjoittaa omia, kommentoida ja äänestää niitä. Suurin osa toiminnallisuuksista on vain kirjautuneille käyttäjille. Ennen tarinan julkaisua se pitää hyväksyä moderaattorin tunnuksilla. 
+
 - Kaikki käyttäjät
      - Mahdollisuus lukea tarinoita
      - Mahdollisuus listata tarinat 
@@ -17,7 +18,10 @@ Mitäeilentapahtu.com
 
 - Moderointi?
      - Ennen tarinan julkaisua sen moderointi
-
+     
+- Mahdollisesti tulevat ominaisuudet:
+     - Paikan lisäys tarinaan
+     
 todo:
 ------
 - ensimmäinen versio kakkosviikolle
