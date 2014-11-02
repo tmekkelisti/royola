@@ -6,7 +6,10 @@ royola
 todo:
 ------
 - aihe
-- travis
-- coveralls
-- pari user storyy
-- maili (ryhmä, opiskellijanrot,  aihe, githubrepo)
+ 
+done:
+------
+- travis (done)
+- coveralls (done)
+- pari user storyy (done)
+- maili (ryhmä, opiskellijanrot,  aihe, githubrepo) (done)
