@@ -18,6 +18,10 @@ Mitäeilentapahtu.com
      
 - Mahdollisesti tulevat ominaisuudet:
      - Paikan lisäys tarinaan
+
+heroku:
+------
+https://warm-temple-5596.herokuapp.com/
      
 todo:
 ------
