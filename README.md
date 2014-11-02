@@ -1,10 +1,7 @@
-royola
+Mitäeilentapahtu.com
 ======
 [![Build Status](https://travis-ci.org/tmekkelisti/royola.svg?branch=master)](https://travis-ci.org/tmekkelisti/royola)
 [![Coverage Status](https://img.shields.io/coveralls/tmekkelisti/royola.svg)](https://coveralls.io/r/tmekkelisti/royola)
-
-
-Mitäeilentapahtu.com
 
 - Stooreja eiliseltä, sivusto joka koostuu eilisen tarinoista. Käyttäjillä mahdollisuus lukea tarinoita, kirjoittaa omia, kommentoida ja äänestää niitä. Suurin osa toiminnallisuuksista on vain kirjautuneille käyttäjille. Ennen tarinan julkaisua se pitää hyväksyä moderaattorin tunnuksilla. 
 
