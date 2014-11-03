@@ -4,9 +4,10 @@
         <actionName>run</actionName>
         <goals>
             <goal>package</goal>
+            <goal>spring-boot:run</goal>
         </goals>
         <properties>
-            <netbeans.deploy>true</netbeans.deploy>
+            
             <skipTests>true</skipTests>
         </properties>
     </action>
