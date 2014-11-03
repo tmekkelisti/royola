@@ -7,7 +7,19 @@
     </head>
 
     <body>
-        <h1>royola</h1>
-        <p>asdasd</p>
+        <h1>Mitä eilen tapahtu?</h1>
+        <div>
+            <form method="POST" th:action="@{/stories}">
+                <textarea name="content"> </textarea>
+                <div><input type="submit" value="Send" /></div>
+            </form>
+        </div>
+
+        <div class="col-3-grid-5" th:each="story : ${stories}">
+            <div class="col-md-9">
+                <h3>Anonymous</h3>
+                <p th:text="${story.content}"></p>
+            </div>
+        </div>
     </body>
 </html>
