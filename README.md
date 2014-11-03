@@ -22,11 +22,15 @@ Mitäeilentapahtu.com
 heroku:
 ------
 https://warm-temple-5596.herokuapp.com/
-     
+
 todo:
 ------
 - ensimmäinen versio kakkosviikolle
- 
+
+inprogress:
+------
+- stories eka versio herokussa, vähä ongelmallinen tässä vaiheessa
+     
 done:
 ------
 - travis (done)
