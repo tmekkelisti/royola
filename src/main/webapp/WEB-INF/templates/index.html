@@ -4,9 +4,20 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
         <title>royolan skeletori</title>
+        <link href="../../static/css/bootstrap.css" th:href="@{/static/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+        <script src="../../static/js/bootstrap.min.js" th:src="@{/static/js/bootstrap.min.js}"></script>
+        <script src="../../static/js/jquery.min.js" th:src="@{/static/js/jquery.min.js}"></script>
+        <link href="../../static/css/style.css" th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="../../static/fonts/css/font-awesome.min.css" th:href="@{/static/fonts/css/font-awesome.min.css}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
 
     <body>
+        <div th:replace="fragments/navbar :: navbar">
+            NAVBAR HERE
+        </div>
+        
+        
         <h1>Mitä eilen tapahtu?</h1>
         <div>
             <form method="POST" th:action="@{/stories}">
@@ -21,9 +32,15 @@
                 <p th:text="${story.content}"></p>
             
             <form th:action="@{/stories/delete/} + ${story.id}" method="post">
-                <button type="submit">delete</button>
+                <button type="submit" class="btn btn-danger btn-xs">delete</button>
             </form>
             </div>
         </div>
+        
+        
+        
+        <!--BOOTSTRAP-->
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="../../static/js/bootstrap.min.js" th:src="@{/static/js/bootstrap.min.js}"></script>
     </body>
 </html>
