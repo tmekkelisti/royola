@@ -29,4 +29,9 @@ public class StoryService {
     public void addStory(Story story) {
         storyRepository.save(story);
     }
+    
+    @Transactional
+    public void deleteStory(Long id) {
+        storyRepository.delete(storyRepository.findOne(id));
+    }
 }

@@ -4,6 +4,7 @@
  */
 package wad.repository;
 
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import wad.domain.Story;
 
@@ -12,5 +13,5 @@ import wad.domain.Story;
  * @author royola
  */
 public interface StoryRepository extends JpaRepository<Story, Long> {
-    
+//    List<Story> findByName(String id);
 }
