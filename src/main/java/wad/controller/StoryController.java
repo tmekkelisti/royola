@@ -14,7 +14,7 @@ import wad.service.StoryService;
 
 /**
  *
- * @author rohamo
+ * @author royola
  */
 @Controller
 @RequestMapping("/stories")

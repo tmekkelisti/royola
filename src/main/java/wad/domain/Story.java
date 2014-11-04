@@ -12,14 +12,13 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 
 /**
  *
- * @author rohamo
+ * @author royola
  */
 @Entity
 public class Story extends AbstractPersistable<Long> {
     
     @Temporal(TemporalType.TIMESTAMP)
     private Date storyDate;
-    private String story;
     private String content;
     
     public Story() {
@@ -32,14 +31,6 @@ public class Story extends AbstractPersistable<Long> {
     
     public void setStoryDate(Date storyDate) {
         this.storyDate = storyDate;
-    }
-    
-    public String getStory() {
-        return story;
-    }
-    
-    public void setStory(String story) {
-        this.story = story;
     }
     
     public String getContent() {

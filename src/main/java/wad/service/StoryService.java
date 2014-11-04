@@ -13,7 +13,7 @@ import wad.repository.StoryRepository;
 
 /**
  *
- * @author rohamo
+ * @author royola
  */
 @Service
 public class StoryService {

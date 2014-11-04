@@ -9,7 +9,7 @@ import wad.domain.Story;
 
 /**
  *
- * @author unknown
+ * @author royola
  */
 public interface StoryRepository extends JpaRepository<Story, Long> {
     
