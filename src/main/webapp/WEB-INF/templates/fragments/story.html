@@ -13,13 +13,16 @@ and open the template in the editor.
     <body>
         <div th:fragment="story">
             <div th:each="story : ${stories}">
-                <div>
-                    <h3>Anonymous</h3>
+                <div class="story">
+                    <p id="author">Anonymous</p>
                     <p th:text="${story.content}"></p>
 
-                    <form th:action="@{/stories/delete/} + ${story.id}" method="post">
-                        <button type="submit" class="btn btn-danger btn-xs">delete</button>
-                    </form>
+                    <div id="delete" class="pull-right">
+                        <form th:action="@{/stories/delete/} + ${story.id}" method="post">
+                            <button type="submit" class="btn btn-danger btn-xs">delete</button>
+                        </form>
+                    </div>
+                    <span class="label label-warning">Krapulassa</span>
                 </div>
             </div>
         </div>
