@@ -1,0 +1,13 @@
+ääkköspurkka:
+public String view(Model model) throws UnsupportedEncodingException {
+        List<Story>asd = new ArrayList<>();
+        for (Story story : storyService.list()) {
+            byte[] iso = story.getContent().getBytes("ISO-8859-1");
+            story.setContent(new String(iso, "UTF-8"));
+            asd.add(story);
+        }
+        model.addAttribute("stories", asd);
+        return "index";
+    }
+    
+käännetää toi roska vaa unicodeks tulostaessa    
