@@ -9,6 +9,7 @@
         <script src="../../static/js/jquery.min.js" th:src="@{/static/js/jquery.min.js}"></script>
         <link href="../../static/css/style.css" th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="../../static/fonts/css/font-awesome.min.css" th:href="@{/static/fonts/css/font-awesome.min.css}" />
+        <link href="../../static/css/custom.css" th:href="@{/static/css/custom.css}" rel="stylesheet" type="text/css" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
     </head>
 
@@ -19,25 +20,18 @@
         
         
         <h1>Mitä eilen tapahtu?</h1>
-        <div>
-            <form method="POST" th:action="@{/stories}">
-                <textarea name="content"> </textarea>
-                <div><input type="submit" value="Send" /></div>
-            </form>
+        
+        <div th:replace="fragments/createStory :: storyForm">
+            STORY FORM HERE
         </div>
 
-        <div class="col-3-grid-5" th:each="story : ${stories}">
-            <div class="col-md-9">
-                <h3>Anonymous</h3>
-                <p th:text="${story.content}"></p>
-            
-            <form th:action="@{/stories/delete/} + ${story.id}" method="post">
-                <button type="submit" class="btn btn-danger btn-xs">delete</button>
-            </form>
-            </div>
+        <div th:replace="fragments/story :: story">
+            STORIES HERE
         </div>
         
-        
+        <div th:replace="fragments/footer :: footer">
+            FOOTER HERE
+        </div>
         
         <!--BOOTSTRAP-->
         <script src="http://code.jquery.com/jquery-latest.js"></script>
