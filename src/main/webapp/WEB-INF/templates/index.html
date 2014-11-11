@@ -14,25 +14,32 @@
     </head>
 
     <body>
-        <div th:replace="fragments/navbar :: navbar">
-            NAVBAR HERE
-        </div>
-        
-        
-        <h1>Mitä eilen tapahtu?</h1>
-        
-        <div th:replace="fragments/createStory :: storyForm">
-            STORY FORM HERE
-        </div>
+        <div class="container">
+            <div class="row">
 
-        <div th:replace="fragments/story :: story">
-            STORIES HERE
+                <div class="col-md-12">
+                    <div th:replace="fragments/navbar :: navbar">
+                        NAVBAR HERE
+                    </div>
+                </div>
+
+                <div class="col-md-8 col-md-offset-2">
+                    <h1>Mitä eilen tapahtu?</h1>
+
+                    <div th:replace="fragments/createStory :: storyForm">
+                        STORY FORM HERE
+                    </div>
+
+                    <div th:replace="fragments/story :: story">
+                        STORIES HERE
+                    </div>
+
+                    <div th:replace="fragments/footer :: footer">
+                        FOOTER HERE
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div th:replace="fragments/footer :: footer">
-            FOOTER HERE
-        </div>
-        
         <!--BOOTSTRAP-->
         <script src="http://code.jquery.com/jquery-latest.js"></script>
         <script src="../../static/js/bootstrap.min.js" th:src="@{/static/js/bootstrap.min.js}"></script>
