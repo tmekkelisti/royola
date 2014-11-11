@@ -15,6 +15,7 @@ and open the template in the editor.
             <div th:each="story : ${stories}">
                 <div class="story">
                     <p id="author">Anonymous</p>
+                    <p id="date" th:text="${#calendars.format(story.storyDate,'yyyy MMMM dd HH:mm')}"></p>
                     <p th:text="${story.content}"></p>
 
                     <div id="delete" class="pull-right">
