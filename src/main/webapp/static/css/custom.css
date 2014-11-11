@@ -1,0 +1,25 @@
+.story {
+    position: relative;
+    background-color: #ddd;
+    min-height: 100px;
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 0px 5px 0px;
+    border: 1px solid #666666;
+    border-radius: 6px;
+    -webkit-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+p#author{
+    color: black;
+    font-weight: bold;
+}
+
+p#date{
+    
+    color: grey;
+    font-style: italic;
+    font-size: 80%;
+}

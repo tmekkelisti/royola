@@ -4,6 +4,7 @@
  */
 package wad.service;
 
+import java.util.Collections;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,9 @@ public class StoryService {
     private StoryRepository storyRepository;
     
     public List<Story> list() {
-        return storyRepository.findAll();
+        List<Story> stories = storyRepository.findAll();
+        Collections.reverse(stories);
+        return stories;
     }
     
     @Transactional

@@ -1,0 +1,47 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head lang="fi">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <title>royolan skeletori</title>
+        <link href="../../static/css/bootstrap.css" th:href="@{/static/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+        <script src="../../static/js/bootstrap.min.js" th:src="@{/static/js/bootstrap.min.js}"></script>
+        <script src="../../static/js/jquery.min.js" th:src="@{/static/js/jquery.min.js}"></script>
+        <link href="../../static/css/style.css" th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="../../static/fonts/css/font-awesome.min.css" th:href="@{/static/fonts/css/font-awesome.min.css}" />
+        <link href="../../static/css/custom.css" th:href="@{/static/css/custom.css}" rel="stylesheet" type="text/css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div th:replace="fragments/navbar :: navbar">
+                        NAVBAR HERE
+                    </div>
+                </div>
+
+                <div class="col-md-8 col-md-offset-2">
+                    <h1>Mitä eilen tapahtu?</h1>
+
+                    <div th:replace="fragments/createStory :: storyForm">
+                        STORY FORM HERE
+                    </div>
+
+                    <div th:replace="fragments/story :: story">
+                        STORIES HERE
+                    </div>
+
+                    <div th:replace="fragments/footer :: footer">
+                        FOOTER HERE
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--BOOTSTRAP-->
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="../../static/js/bootstrap.min.js" th:src="@{/static/js/bootstrap.min.js}"></script>
+    </body>
+</html>
