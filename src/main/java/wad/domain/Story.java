@@ -23,6 +23,9 @@ public class Story extends AbstractPersistable<Long> {
     @Temporal(TemporalType.TIMESTAMP)
     private Date storyDate;
     
+    @Temporal(TemporalType.DATE)
+    private Date storyDateShort;
+    
     @Lob
     @Column(length = 10000)
     @NotBlank
