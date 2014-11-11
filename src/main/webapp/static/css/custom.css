@@ -1,8 +1,83 @@
+/* General Styles */
+body {
+	color:#fff;
+	text-align:center;
+	font-family: Helvetica, Arial, sans-serif;
+}
+h1, h2 ,h3 ,h4, h5, h6 {
+	font-family:'Open Sans', Helvetica, Arial, sans-serif;
+	font-weight:100;
+	margin: 1em 0 1em 0;
+}
+h1{
+	font-size: 4em;
+}
+h1.logo,h2.logo,h3.logo,h4.logo,h5.logo,h6.logo {
+	font-family:Pacifico, Helvetica, Arial, sans-serif;
+}
+.stress {
+	font-weight:600;
+	margin: 40px 0px 10px 0px;
+}
+.teaser {
+	background: rgba(0, 0, 0, 0.33);
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 1em;
+	margin-bottom: 40px;
+	border-radius: 3px;
+}
+@media only screen and (max-width: 640px)  {
+	.teaser {width: 350px;}
+}
+
+
+/* Dividers */
+hr.launchrocket {
+    padding: 0;
+    border: none;
+    border-top: 1px solid #fff;
+    color: #B6B6B6;
+    text-align: center;
+    opacity: .8;
+    margin: 45px 0px 45px 0px;
+}
+hr.signup:after {
+	font-family: FontAwesome;
+	content: "\f0e0";
+	display: inline-block;
+	position: relative;
+	top: -1.2em;
+	font-size: 1em;
+	padding: 0 0.25em;
+	background: #fff;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	line-height: 2;
+}
+hr.social:after {
+        font-family: FontAwesome;
+	content: "\f064";
+	display: inline-block;
+	position: relative;
+	top: -1.2em;
+	font-size: 1em;
+	padding: 0 0.25em;
+	background: #fff;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	line-height: 2;
+}
+
 .story {
+    text-align: left;
     position: relative;
     background-color: #ddd;
     min-height: 100px;
-    width: 100%;
+    max-width: 90%;
     padding: 10px 10px 10px 10px;
     margin: 10px 0px 5px 0px;
     border: 1px solid #666666;
@@ -13,13 +88,35 @@
 }
 
 p#author{
-    color: black;
+    text-align: left;
+    color: white;
     font-weight: bold;
 }
 
 p#date{
     
-    color: grey;
+    color: white;
     font-style: italic;
     font-size: 80%;
+}
+
+p#story{
+    color: white;
+    text-align: left;
+    -ms-word-break: break-all;
+    word-break: break-all;
+
+ /* Non standard for webkit */
+     word-break: break-word;
+
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+}
+
+textarea.form-control {
+    color: white;
+    background: rgba(0, 0, 0, 0.33);
+    resize: none;
 }
