@@ -8,6 +8,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 /**
@@ -19,6 +20,8 @@ public class Story extends AbstractPersistable<Long> {
     
     @Temporal(TemporalType.TIMESTAMP)
     private Date storyDate;
+    
+    @NotBlank
     private String content;
     
     public Story() {

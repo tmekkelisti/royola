@@ -4,6 +4,7 @@
  */
 package wad.controller;
 
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,8 +25,9 @@ public class StoryController {
     @Autowired
     private StoryService storyService;
     
+
     @RequestMapping(method = RequestMethod.POST)
-    public String create(@ModelAttribute Story story) {
+    public String create(@Valid @ModelAttribute Story story) {
         // TODO: add person details in the future
         
         storyService.addStory(story);
