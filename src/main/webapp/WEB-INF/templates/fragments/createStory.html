@@ -14,8 +14,8 @@ and open the template in the editor.
         <div th:fragment="storyForm">
             <div>
                 <form method="POST" th:action="@{/stories}">
-                    <textarea name="content"> </textarea>
-                    <div><input type="submit" value="Send" /></div>
+                    <textarea class="form-control" rows="5" name="content" placeholder="Kirjoita tarinasi tähän."> </textarea>
+                    <div><button type="submit" class="btn btn-primary btn-block" value="Send" >Julkaise tarina!</button></div>
                 </form>
             </div>
         </div>
