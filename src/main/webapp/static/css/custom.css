@@ -1,35 +1,41 @@
 /* General Styles */
 body {
-	color:#fff;
-	text-align:center;
-	font-family: Helvetica, Arial, sans-serif;
+    color:#fff;
+    text-align:center;
+    font-family: 'Open Sans',Helvetica, Arial, sans-serif;
 }
 h1, h2 ,h3 ,h4, h5, h6 {
-	font-family:'Open Sans', Helvetica, Arial, sans-serif;
-	font-weight:100;
-	margin: 1em 0 1em 0;
+    font-family:'Open Sans', Helvetica, Arial, sans-serif;
+    font-weight:100;
+    margin: 1em 0 1em 0;
 }
 h1{
-	font-size: 4em;
+    font-size: 4em;
 }
 h1.logo,h2.logo,h3.logo,h4.logo,h5.logo,h6.logo {
-	font-family:Pacifico, Helvetica, Arial, sans-serif;
+    font-family:Pacifico, Helvetica, Arial, sans-serif;
 }
+
+a.logo {
+    font-family:Pacifico, Helvetica, Arial, sans-serif;
+
+}
+
 .stress {
-	font-weight:600;
-	margin: 40px 0px 10px 0px;
+    font-weight:600;
+    margin: 40px 0px 10px 0px;
 }
 .teaser {
-	background: rgba(0, 0, 0, 0.33);
-	width: 700px;
-	margin-left: auto;
-	margin-right: auto;
-	padding: 1em;
-	margin-bottom: 40px;
-	border-radius: 3px;
+    background: rgba(0, 0, 0, 0.33);
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    margin-bottom: 40px;
+    border-radius: 3px;
 }
 @media only screen and (max-width: 640px)  {
-	.teaser {width: 350px;}
+    .teaser {width: 350px;}
 }
 
 
@@ -44,32 +50,32 @@ hr.launchrocket {
     margin: 45px 0px 45px 0px;
 }
 hr.signup:after {
-	font-family: FontAwesome;
-	content: "\f0e0";
-	display: inline-block;
-	position: relative;
-	top: -1.2em;
-	font-size: 1em;
-	padding: 0 0.25em;
-	background: #fff;
-	border-radius: 50%;
-	width: 30px;
-	height: 30px;
-	line-height: 2;
+    font-family: FontAwesome;
+    content: "\f0e0";
+    display: inline-block;
+    position: relative;
+    top: -1.2em;
+    font-size: 1em;
+    padding: 0 0.25em;
+    background: #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 2;
 }
 hr.social:after {
-        font-family: FontAwesome;
-	content: "\f064";
-	display: inline-block;
-	position: relative;
-	top: -1.2em;
-	font-size: 1em;
-	padding: 0 0.25em;
-	background: #fff;
-	border-radius: 50%;
-	width: 30px;
-	height: 30px;
-	line-height: 2;
+    font-family: FontAwesome;
+    content: "\f064";
+    display: inline-block;
+    position: relative;
+    top: -1.2em;
+    font-size: 1em;
+    padding: 0 0.25em;
+    background: #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 2;
 }
 
 .story {
@@ -94,7 +100,7 @@ p#author{
 }
 
 p#date{
-    
+
     color: white;
     font-style: italic;
     font-size: 80%;
@@ -106,17 +112,144 @@ p#story{
     -ms-word-break: break-all;
     word-break: break-all;
 
- /* Non standard for webkit */
-     word-break: break-word;
+    /* Non standard for webkit */
+    word-break: break-word;
 
     -webkit-hyphens: auto;
-       -moz-hyphens: auto;
-        -ms-hyphens: auto;
-            hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
 }
 
 textarea.form-control {
     color: white;
     background: rgba(0, 0, 0, 0.33);
     resize: none;
+    border-width: 0;
 }
+
+/* navbar */
+
+.navbar-default {
+    background-color: rgba(0, 0, 0, 0.33);
+    border-color: #8e44ad;
+    border-radius: 0;
+    border-width: 0;
+}
+.navbar-default .navbar-brand {
+    color: rgba(0, 0, 0, 0.33);
+}
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #ecdbff;
+}
+.navbar-default .navbar-text {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #ecdbff;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #ecdbff;
+    background-color:rgba(0, 0, 0, 0.33);
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: #ecdbff;
+    background-color: rgba(0, 0, 0, 0.33);
+}
+.navbar-default .navbar-toggle {
+    border-color: black;
+    background-color: rgba(0, 0, 0, 0.33);
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: rgba(0, 0, 0, 0.33);
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: rgba(0, 0, 0, 0.33);
+}
+.navbar-default .navbar-collapse {
+    background-color: rgba(0, 0, 0, 0.33);
+}
+.navbar-default .navbar-form {
+    border-color: #ecf0f1;
+}
+.navbar-default .navbar-link {
+    color: #ecf0f1;
+}
+.navbar-default .navbar-link:hover {
+    color: #ecdbff;
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+
+        background-color: rgba(0, 0, 0, 0.33);
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+
+        background-color: rgba(0, 0, 0, 0.33);
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: #ecdbff;
+        background-color: rgba(0, 0, 0, 0.33);
+        
+    }
+}
+
+/* dropdown */
+
+.dropdown-menu  {
+    background-color: rgba(0, 0, 0, 0.33);
+    color: lightgray;
+    text-align: right;
+}
+
+.dropdown-menu.pull-right {
+    right: 0;
+    left: auto;
+}
+.dropdown-menu .divider {
+    height: 1px;
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: lightgray;
+}
+.dropdown-menu > li > a {
+    color: white;
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.42857143;  
+    white-space: nowrap;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+    color: grey;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.33);
+}
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+    color: grey;
+    text-decoration: none;
+    background-color: #428bca;
+    outline: 0;
+}
+.dropdown-menu > .disabled > a,
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+    color: #999;
+}
+.dropdown-menu > .disabled > a:hover,
+.dropdown-menu > .disabled > a:focus {
+    text-decoration: none;
+    cursor: not-allowed;
+    background-color: transparent;
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+
