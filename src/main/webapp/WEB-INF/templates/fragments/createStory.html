@@ -21,7 +21,7 @@ and open the template in the editor.
     <body>
         <div class="teaser" th:fragment="storyForm">
             <div>
-                <form method="POST" th:action="@{/stories}">
+                <form method="POST" th:action="@{/stories}" accept-charset="UTF-8">
                     <textarea class="form-control" rows="5" name="content" placeholder="Kirjoita tarinasi tähän." onkeypress="CheckLength()"></textarea>
                     <br></br>
                     <div><button type="submit" class="btn btn-primary btn-block" value="Send" >Julkaise tarina!</button></div>
