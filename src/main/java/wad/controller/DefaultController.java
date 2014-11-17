@@ -18,7 +18,6 @@ public class DefaultController {
 
     @Autowired
     private StoryService storyService;
-    
     @Autowired
     private UserService userService;
 
@@ -35,25 +34,26 @@ public class DefaultController {
     @RequestMapping(method = RequestMethod.GET)
     public String view(Model model) throws UnsupportedEncodingException {
         List<Story> asd = new ArrayList<>();
-        for (Story story : storyService.list()) {
-            byte[] iso = story.getContent().getBytes("ISO-8859-1");
-            story.setContent(new String(iso, "UTF-8"));
-            asd.add(story);
+        if (!storyService.list().isEmpty()) {
+            for (Story story : storyService.list()) {
+                byte[] iso = story.getContent().getBytes("ISO-8859-1");
+                story.setContent(new String(iso, "UTF-8"));
+                asd.add(story);
+            }
+            model.addAttribute("stories", asd);
         }
         
-        model.addAttribute("stories", asd);
         model.addAttribute("user", currentUser());
         return "index";
     }
-    
-    public String currentUser(){
+
+    public String currentUser() {
         String user = "Not logged";
-        
-        if(userService.getAuthenticatedPerson() != null){
-            user = userService.getAuthenticatedPerson().getUsername();
+
+        if (userService.getAuthenticatedPerson() != null) {
+            user = "Kirjautunut: " + userService.getAuthenticatedPerson().getUsername();
         }
-        
+
         return user;
     }
-    
 }
