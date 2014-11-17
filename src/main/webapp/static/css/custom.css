@@ -31,7 +31,7 @@ a.logo {
     margin-left: auto;
     margin-right: auto;
     padding: 1em;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     border-radius: 3px;
 }
 @media only screen and (max-width: 640px)  {
@@ -112,6 +112,10 @@ p#story{
     -ms-word-break: break-all;
     word-break: break-all;
 
+    position: relative;
+    
+    min-height: auto;
+    max-height: auto;    
     /* Non standard for webkit */
     word-break: break-word;
 
@@ -119,7 +123,10 @@ p#story{
     -moz-hyphens: auto;
     -ms-hyphens: auto;
     hyphens: auto;
+    
 }
+
+
 
 textarea.form-control {
     color: white;
@@ -253,3 +260,71 @@ textarea.form-control {
     filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
 
+.button-royola {
+   border: 0px solid #ffffff;
+   background: #4c9e85;
+   background: -webkit-gradient(linear, left top, left bottom, from(#49a687), to(#4c9e85));
+   background: -webkit-linear-gradient(top, #49a687, #4c9e85);
+   background: -moz-linear-gradient(top, #49a687, #4c9e85);
+   background: -ms-linear-gradient(top, #49a687, #4c9e85);
+   background: -o-linear-gradient(top, #49a687, #4c9e85);
+   background-image: -ms-linear-gradient(top, #49a687 0%, #4c9e85 100%);
+   padding: 10px 15px;
+   border-radius: 4px;
+   text-shadow: #7ea4bd 0 1px 0;
+   color: #ffffff;
+   font-size: 14px;
+   font-family: helvetica, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   
+   }
+.button-royola:hover {
+   border: 0px solid #ffffff;
+   text-shadow: #6e8d9e 0 1px 0;
+   background: #5c9c82;
+   background: -webkit-gradient(linear, left top, left bottom, from(#4c9c7c), to(#5c9c82));
+   background: -webkit-linear-gradient(top, #4c9c7c, #5c9c82);
+   background: -moz-linear-gradient(top, #4c9c7c, #5c9c82);
+   background: -ms-linear-gradient(top, #4c9c7c, #5c9c82);
+   background: -o-linear-gradient(top, #4c9c7c, #5c9c82);
+   background-image: -ms-linear-gradient(top, #4c9c7c 0%, #5c9c82 100%);
+   color: #fff;
+   }
+.button-royola:active {
+   text-shadow: #293a45 0 1px 0;
+   border: 0px solid #ffffff;
+   background: #368f67;
+   background: -webkit-gradient(linear, left top, left bottom, from(#4c9982), to(#5c9c82));
+   background: -webkit-linear-gradient(top, #4c9982, #368f67);
+   background: -moz-linear-gradient(top, #4c9982, #368f67);
+   background: -ms-linear-gradient(top, #4c9982, #368f67);
+   background: -o-linear-gradient(top, #4c9982, #368f67);
+   background-image: -ms-linear-gradient(top, #4c9982 0%, #368f67 100%);
+   color: #fff;
+ }
+ 
+ .button-royodele {
+   border: 0px solid #ffffff;
+   background: #ff4c4c;
+   background: -webkit-gradient(linear, left top, left bottom, from(#ff5757), to(#ff4c4c));
+   background: -webkit-linear-gradient(top, #ff5757, #ff4c4c);
+   background: -moz-linear-gradient(top, #ff5757, #ff4c4c);
+   background: -ms-linear-gradient(top, #ff5757, #ff4c4c);
+   background: -o-linear-gradient(top, #ff5757, #ff4c4c);
+   background-image: -ms-linear-gradient(top, #ff5757 0%, #ff4c4c 100%);
+   padding: 1px 6px;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 3px;
+   -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+   -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+   box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 0px 0;
+   text-shadow: #000000 0 1px 0;
+   color: #ffffff;
+   font-size: 13px;
+   font-family: helvetica, serif;
+   text-decoration: none;
+   vertical-align: text-top;
+   margin: -25px 0px;
+ }

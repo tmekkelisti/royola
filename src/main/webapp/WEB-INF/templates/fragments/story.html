@@ -22,18 +22,24 @@ and open the template in the editor.
             <div th:each="story : ${stories}">
                 
                     <div class="teaser">    
-                        
+                    <div id="delete" class="pull-right">
+                        <form th:action="@{/stories/delete/} + ${story.id}" method="post">
+                            <button type="submit" class="btn button-royodele btn-xs">x</button>
+                        </form>
+                    </div>    
+                    <br></br>    
                     <p id="author" class="pull-left" th:text="${story.author}">Anonymous</p>
                     <p id="date" class="pull-right" th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
                     <br></br>
-                    <p id="story" class="pull-left" th:text="${story.content}"></p>
                     <br></br>
-                    <div id="delete" class="pull-right">
+                    <p id="story" th:text="${story.content}"></p>
+                    <br></br>
+<!--                    <div id="delete" class="pull-right">
                         <form th:action="@{/stories/delete/} + ${story.id}" method="post">
-                            <button type="submit" class="btn btn-danger btn-xs">delete</button>
+                            <button type="submit" class="btn button-royodele btn-xs">delete</button>
                         </form>
-                    </div>
-                    <span class="label label-warning">Krapulassa</span>
+                    </div>-->
+                    <!--<span class="label label-warning">Krapulassa</span>-->
                     
                 </div>
             </div>
