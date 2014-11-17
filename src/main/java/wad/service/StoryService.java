@@ -22,6 +22,9 @@ public class StoryService {
     @Autowired
     private StoryRepository storyRepository;
     
+    @Autowired
+    private UserService userService;
+    
     public List<Story> list() {
         List<Story> stories = storyRepository.findAll();
         Collections.reverse(stories);
@@ -30,6 +33,7 @@ public class StoryService {
     
     @Transactional
     public void addStory(Story story) {
+        story.setAuthor(userService.getAuthenticatedPerson().getUsername());
         storyRepository.save(story);
     }
     
