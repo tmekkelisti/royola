@@ -12,19 +12,19 @@ import wad.repository.StoryRepository;
 @Profile(value = {"dev", "default"})
 public class DevProfile {
 
-    @Autowired
-    private StoryRepository storyRepository;
-
-    @PostConstruct
-    public void init() {
-        Story firstStory = new Story();
-        firstStory.setContent("Pikku testailua, jatkuu huomena");
-        storyRepository.save(firstStory);
-
-        for (int i = 0; i < 20; i++) {
-            Story newStory = new Story();
-            newStory.setContent(UUID.randomUUID().toString());
-            storyRepository.save(newStory);
-        }
-    }
+//    @Autowired
+//    private StoryRepository storyRepository;
+//
+//    @PostConstruct
+//    public void init() {
+//        Story firstStory = new Story();
+//        firstStory.setContent("Pikku testailua, jatkuu huomena");
+//        storyRepository.save(firstStory);
+//
+//        for (int i = 0; i < 20; i++) {
+//            Story newStory = new Story();
+//            newStory.setContent(UUID.randomUUID().toString());
+//            storyRepository.save(newStory);
+//        }
+//    }
 }

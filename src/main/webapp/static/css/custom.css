@@ -314,12 +314,7 @@ textarea.form-control {
    background: -o-linear-gradient(top, #ff5757, #ff4c4c);
    background-image: -ms-linear-gradient(top, #ff5757 0%, #ff4c4c 100%);
    padding: 1px 6px;
-   -webkit-border-radius: 5px;
-   -moz-border-radius: 5px;
    border-radius: 3px;
-   -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 0px 0;
-   -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 0px 0;
-   box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 0px 0;
    text-shadow: #000000 0 1px 0;
    color: #ffffff;
    font-size: 13px;
