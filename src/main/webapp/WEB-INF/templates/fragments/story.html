@@ -12,7 +12,7 @@ and open the template in the editor.
         <script src="../../static/js/jquery.min.js" th:src="@{/static/js/jquery.min.js}"></script>
         <link href="../../static/css/style.css" th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="../../static/fonts/css/font-awesome.min.css" th:href="@{/static/fonts/css/font-awesome.min.css}" />
-        
+
         <title>TODO supply a title</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,13 +20,16 @@ and open the template in the editor.
     <body>
         <div th:fragment="story">
             <div th:each="story : ${stories}">
-                
-                    <div class="teaser">    
-                    <div id="delete" class="pull-right">
-                        <form th:action="@{/stories/delete/} + ${story.id}" method="post">
-                            <button type="submit" class="btn button-royodele btn-xs">x</button>
-                        </form>
-                    </div>    
+
+
+                <div class="teaser">    
+                    <div sec:authorize="isAuthenticated()">
+                        <div id="delete" class="pull-right">
+                            <form th:action="@{/stories/delete/} + ${story.id}" method="post">
+                                <button type="submit" class="btn button-royodele btn-xs">x</button>
+                            </form>
+                        </div>    
+                    </div>
                     <br></br>    
                     <p id="author" class="pull-left" th:text="${story.author}">Anonymous</p>
                     <p id="date" class="pull-right" th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
@@ -34,13 +37,13 @@ and open the template in the editor.
                     <br></br>
                     <p id="story" th:text="${story.content}"></p>
                     <br></br>
-<!--                    <div id="delete" class="pull-right">
-                        <form th:action="@{/stories/delete/} + ${story.id}" method="post">
-                            <button type="submit" class="btn button-royodele btn-xs">delete</button>
-                        </form>
-                    </div>-->
+                    <!--                    <div id="delete" class="pull-right">
+                                            <form th:action="@{/stories/delete/} + ${story.id}" method="post">
+                                                <button type="submit" class="btn button-royodele btn-xs">delete</button>
+                                            </form>
+                                        </div>-->
                     <!--<span class="label label-warning">Krapulassa</span>-->
-                    
+
                 </div>
             </div>
         </div>

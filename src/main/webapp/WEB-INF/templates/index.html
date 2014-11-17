@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head lang="fi">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
@@ -18,36 +18,38 @@
 
     <body background="../../static/img/bg.jpg" bgproperties="fixed">
         <div class="container-fluid">
-            
-                <div class="row">
 
-                    <div>
-                        <div th:replace="fragments/navbar :: navbar">
-                            NAVBAR HERE
-                        </div>
-                    </div>
+            <div class="row">
 
-                    <div class="header">
-                        <h1 class="logo">Mitä eilen tapahtui?</h1>
-                    </div>
-
-                    
-                        <div th:replace="fragments/createStory :: storyForm">
-                            STORY FORM HERE
-                        </div>
-
-                    <div>
-                        <div th:replace="fragments/story :: story">
-                            STORIES HERE
-                        </div>
-                    </div>
-                       
-                    <div th:replace="fragments/footer :: footer">
-                            FOOTER HERE
-                    </div>
-                    
+                <div>
+                    <div th:replace="fragments/navbar :: navbar">
+                        NAVBAR HERE
                     </div>
                 </div>
+
+                <div class="header">
+                    <h1 class="logo">Mitä eilen tapahtui?</h1>
+                </div>
+
+                <div sec:authorize="isAuthenticated()">
+
+                    <div th:replace="fragments/createStory :: storyForm">
+                        STORY FORM HERE
+                    </div>
+                </div>
+
+                <div>
+                    <div th:replace="fragments/story :: story">
+                        STORIES HERE
+                    </div>
+                </div>
+
+                <div th:replace="fragments/footer :: footer">
+                    FOOTER HERE
+                </div>
+
+            </div>
+        </div>
         <!-- Core JavaScript Files -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="js/bootstrap.min.js" th:src="@{/static/js/bootstrap.min.js}"></script>
