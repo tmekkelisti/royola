@@ -5,6 +5,7 @@
 package wad.domain;
 
 import java.util.Date;
+import java.util.TimeZone;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
@@ -31,7 +32,10 @@ public class Story extends AbstractPersistable<Long> {
     @NotBlank
     private String content;
     
+    private String author;
+    
     public Story() {
+        TimeZone.setDefault(TimeZone.getTimeZone("GMT+2"));
         this.storyDate = new Date();
     }
     
@@ -50,4 +54,15 @@ public class Story extends AbstractPersistable<Long> {
     public void setContent(String content) {
         this.content = content;
     }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+    
+    
 }
+

@@ -41,8 +41,19 @@ public class DefaultController {
             asd.add(story);
         }
         
-//        model.addAttribute("user", userService.getAuthenticatedPerson().getUsername());
         model.addAttribute("stories", asd);
+        model.addAttribute("user", currentUser());
         return "index";
     }
+    
+    public String currentUser(){
+        String user = "Not logged";
+        
+        if(userService.getAuthenticatedPerson() != null){
+            user = userService.getAuthenticatedPerson().getUsername();
+        }
+        
+        return user;
+    }
+    
 }

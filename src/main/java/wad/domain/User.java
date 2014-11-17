@@ -16,7 +16,7 @@ public class User extends AbstractPersistable<Long> {
     @Column(unique = true)
     private String username;
     @NotBlank
-    // ei vittu mä sanon @Length(min = 5, max = 20)
+    //  @Length(min = 5, max = 20)
     private String password;
     
     @Column(unique = true)

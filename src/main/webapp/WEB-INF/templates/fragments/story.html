@@ -23,8 +23,8 @@ and open the template in the editor.
                 
                     <div class="teaser">    
                         
-                    <p id="author" class="pull-left">Anonymous</p>
-                    <p id="date" class="pull-right" th:text="${#calendars.format(story.storyDate,'yyyy MMMM dd HH:mm')}"></p>
+                    <p id="author" class="pull-left" th:text="${story.author}">Anonymous</p>
+                    <p id="date" class="pull-right" th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
                     <br></br>
                     <p id="story" class="pull-left" th:text="${story.content}"></p>
                     <br></br>
