@@ -33,6 +33,7 @@ public class StoryService {
     
     @Transactional
     public void addStory(Story story) {
+        story.setStoryId();
         story.setAuthor(userService.getAuthenticatedPerson().getUsername());
         storyRepository.save(story);
     }
@@ -40,5 +41,10 @@ public class StoryService {
     @Transactional
     public void deleteStory(Long id) {
         storyRepository.delete(storyRepository.findOne(id));
+    }
+    
+    @Transactional
+    public Story getStory(Long id) {
+        return storyRepository.findOne(id);
     }
 }

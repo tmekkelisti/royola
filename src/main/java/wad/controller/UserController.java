@@ -27,7 +27,7 @@ public class UserController {
     @RequestMapping(method = RequestMethod.POST)
     public String create(@ModelAttribute User user) {
         userRepo.save(user);
-        return "redirect:/index";
+        return "redirect:/login";
     }
 
 }

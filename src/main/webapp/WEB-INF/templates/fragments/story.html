@@ -24,11 +24,17 @@ and open the template in the editor.
 
                 <div class="teaser">    
                     <div sec:authorize="isAuthenticated()">
-                        <div id="delete" class="pull-right">
+                        <div id="storyId" class="pull-left">
+                            <form th:action="@{/stories/} + ${story.id}" method="get">
+                                <button type="submit" class="btn button-royoid btn-xs" th:text="${story.storyId}">randomId</button>
+                            </form>
+                        </div>
+
+                        <div id="delete" class="pull-right">                          
                             <form th:action="@{/stories/delete/} + ${story.id}" method="post">
                                 <button type="submit" class="btn button-royodele btn-xs">x</button>
                             </form>
-                        </div>    
+                        </div>
                     </div>
                     <br></br>    
                     <p id="author" class="pull-left" th:text="${story.author}">Anonymous</p>

@@ -40,4 +40,11 @@ public class StoryController {
         storyService.deleteStory(id);
         return "redirect:/index";
     }
+    
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public String get(@PathVariable Long id) {
+        
+        storyService.getStory(id);
+        return "redirect:/index";
+    }
 }

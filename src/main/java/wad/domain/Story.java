@@ -6,9 +6,11 @@ package wad.domain;
 
 import java.util.Date;
 import java.util.TimeZone;
+import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.validator.constraints.NotBlank;
@@ -24,9 +26,6 @@ public class Story extends AbstractPersistable<Long> {
     @Temporal(TemporalType.TIMESTAMP)
     private Date storyDate;
     
-    @Temporal(TemporalType.DATE)
-    private Date storyDateShort;
-    
     @Lob
     @Column(length = 10000)
     @NotBlank
@@ -34,8 +33,9 @@ public class Story extends AbstractPersistable<Long> {
     
     private String author;
     
+    private String storyId;
+    
     public Story() {
-        TimeZone.setDefault(TimeZone.getTimeZone("GMT+2"));
         this.storyDate = new Date();
     }
     
@@ -63,6 +63,13 @@ public class Story extends AbstractPersistable<Long> {
         this.author = author;
     }
     
+    public String getStoryId() {
+        return storyId;
+    }
     
+    public void setStoryId() {
+        String uuid = UUID.randomUUID().toString();
+        this.storyId = uuid.substring(0, 7);
+    }
 }
 

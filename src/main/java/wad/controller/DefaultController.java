@@ -42,7 +42,6 @@ public class DefaultController {
             }
             model.addAttribute("stories", asd);
         }
-        
         model.addAttribute("user", currentUser());
         return "index";
     }
