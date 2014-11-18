@@ -31,8 +31,10 @@ public class Story extends AbstractPersistable<Long> {
     @NotBlank
     private String content;
     
+    @Column(length = 50)
     private String author;
     
+    @Column(length = 10)
     private String storyId;
     
     public Story() {

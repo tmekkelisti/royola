@@ -9,7 +9,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
 @Entity
-public class User extends AbstractPersistable<Long> {
+public class Person extends AbstractPersistable<Long> {
     
     @NotBlank
     @Length(min = 3, max = 15)

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import wad.domain.User;
+import wad.domain.Person;
 import wad.repository.UserRepository;
 
 /**
@@ -25,7 +25,7 @@ public class UserController {
     private UserRepository userRepo;
 
     @RequestMapping(method = RequestMethod.POST)
-    public String create(@ModelAttribute User user) {
+    public String create(@ModelAttribute Person user) {
         userRepo.save(user);
         return "redirect:/login";
     }

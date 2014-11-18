@@ -2,10 +2,10 @@
 package wad.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import wad.domain.User;
+import wad.domain.Person;
 
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface UserRepository extends JpaRepository<Person, Long>{
     
-    User findByUsername(String username);
+    Person findByUsername(String username);
     
 }

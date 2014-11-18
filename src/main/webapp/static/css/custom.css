@@ -142,6 +142,7 @@ textarea.form-control {
     border-color: #8e44ad;
     border-radius: 0;
     border-width: 0;
+    max-height: 0;
 }
 .navbar-default .navbar-brand {
     color: rgba(0, 0, 0, 0.33);
