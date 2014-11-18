@@ -32,6 +32,7 @@ todo:
 - like/unlike
 - kommentointi
 - testaaminen/testit (highprio)
+
 inprogress:
 ------
 - sovellus toimimaan herokussa (prio 1)
