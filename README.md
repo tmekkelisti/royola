@@ -25,14 +25,24 @@ https://warm-temple-5596.herokuapp.com/
 
 todo:
 ------
-- ensimmäinen versio kakkosviikolle
+- kirjautumisen säätö
+- yksittäisen tarinan tarkastelu
+- linkit storiesin kautta tarinaan
+- käyttäjän tarinat
+- like/unlike
+- kommentointi
 
 inprogress:
 ------
-- stories eka versio herokussa, vähä ongelmallinen tässä vaiheessa
+- sovellus toimimaan herokussa (prio 1)
+- demo
      
 done:
 ------
+- bootstrap
+- listaa tarinat
+- tarinan poisto
+- käyttäjän kirjautuminen ja rekisteröinti
 - travis (done)
 - coveralls (done)
 - pari user storyy (done)
