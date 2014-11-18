@@ -37,10 +37,10 @@
 
                             <div class="btn-group" role="group" aria-label="...">
                                 <div sec:authorize="isAuthenticated()">
-                                    <button type="button" class="btn btn-default" aria-label="Left Align">
+                                    <button type="button" class="btn button-royonav" aria-label="Left Align">
                                         <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                                     </button>
-                                    <button onclick="document.getElementById('logout-form').submit();" type="button" class="btn btn-default" aria-label="Left Align">
+                                    <button onclick="document.getElementById('logout-form').submit();" type="button" class="btn button-royonav" aria-label="Left Align">
                                         <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
                                     </button>
                                     <form style="visibility: hidden" id="logout-form" method="post" action="#" th:action="@{/logout}">
@@ -48,7 +48,7 @@
                                     </form>
                                 </div>
                                 <div sec:authorize="not isAuthenticated()">
-                                    <button onclick="document.getElementById('login-form').submit();" type="button" class="btn btn-default" aria-label="Left Align">
+                                    <button onclick="document.getElementById('login-form').submit();" type="button" class="btn button-royonav" aria-label="Left Align">
                                         <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
                                     </button>
                                     <form style="visibility: hidden" id="login-form" method="get" action="#" th:action="@{/login}">

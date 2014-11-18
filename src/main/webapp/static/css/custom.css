@@ -344,3 +344,27 @@ textarea.form-control {
    vertical-align: text-top;
    margin: -25px 0px;
  }
+ 
+ .button-royonav {
+   border: 0px solid #ffffff;
+   background: rgba(0, 0, 0, 0.33);
+/*   background: -webkit-gradient(linear, left top, left bottom, from(#ff5757), to(#ff4c4c));
+   background: -webkit-linear-gradient(top, #ff5757, #ff4c4c);
+   background: -moz-linear-gradient(top, #ff5757, #ff4c4c);
+   background: -ms-linear-gradient(top, #ff5757, #ff4c4c);
+   background: -o-linear-gradient(top, #ff5757, #ff4c4c);
+   background-image: -ms-linear-gradient(top, #ff5757 0%, #ff4c4c 100%);*/
+   padding: 1px 6px;
+   border-radius: 3px;
+   text-shadow: #000000 0 1px 0;
+   color: #ffffff;
+   font-size: 20px;
+   font-family: helvetica, serif;
+   text-decoration: none;
+   margin-top: auto;
+   margin-bottom: auto;
+ }
+ 
+ .btn-group {
+   margin: 9px -5px;
+ }
