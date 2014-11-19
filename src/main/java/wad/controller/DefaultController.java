@@ -34,8 +34,9 @@ public class DefaultController {
     }
     
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
-    public Story get(@PathVariable Long id, Model model) { 
-        return storyService.getStory(id);
+    public String get(@PathVariable Long id, Model model) {
+        model.addAttribute("story", storyService.getStory(id));
+        return "get";
     }
 
     @RequestMapping(method = RequestMethod.GET)
