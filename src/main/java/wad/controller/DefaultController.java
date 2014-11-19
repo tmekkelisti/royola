@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import wad.domain.Story;
@@ -18,6 +19,7 @@ public class DefaultController {
 
     @Autowired
     private StoryService storyService;
+    
     @Autowired
     private UserService userService;
 
@@ -29,6 +31,11 @@ public class DefaultController {
     @RequestMapping(value = "signup", method = RequestMethod.GET)
     public String viewSignup(Model model) {
         return "signup";
+    }
+    
+    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
+    public Story get(@PathVariable Long id, Model model) { 
+        return storyService.getStory(id);
     }
 
     @RequestMapping(method = RequestMethod.GET)

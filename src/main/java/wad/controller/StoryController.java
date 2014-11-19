@@ -7,10 +7,12 @@ package wad.controller;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 import wad.domain.Story;
 import wad.service.StoryService;
 
@@ -18,6 +20,7 @@ import wad.service.StoryService;
  *
  * @author royola
  */
+
 @Controller
 @RequestMapping("/stories")
 public class StoryController {
@@ -38,13 +41,6 @@ public class StoryController {
     public String delete(@PathVariable Long id) {
 
         storyService.deleteStory(id);
-        return "redirect:/index";
-    }
-    
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String get(@PathVariable Long id) {
-        
-        storyService.getStory(id);
         return "redirect:/index";
     }
 }

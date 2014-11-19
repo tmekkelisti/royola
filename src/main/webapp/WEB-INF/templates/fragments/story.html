@@ -23,13 +23,13 @@ and open the template in the editor.
 
 
                 <div class="teaser">    
-                    <div sec:authorize="isAuthenticated()">
+                    
                         <div id="storyId" class="pull-left">
-                            <form th:action="@{/stories/} + ${story.id}" method="get">
+                            <form th:action="@{stories/get/} + ${story.id}" method="get">
                                 <button type="submit" class="btn button-royoid btn-xs" th:text="${story.storyId}">randomId</button>
                             </form>
                         </div>
-
+                    <div sec:authorize="isAuthenticated()">
                         <div id="delete" class="pull-right">                          
                             <form th:action="@{/stories/delete/} + ${story.id}" method="post">
                                 <button type="submit" class="btn button-royodele btn-xs">x</button>
@@ -43,13 +43,6 @@ and open the template in the editor.
                     <br></br>
                     <p id="story" th:text="${story.content}"></p>
                     <br></br>
-                    <!--                    <div id="delete" class="pull-right">
-                                            <form th:action="@{/stories/delete/} + ${story.id}" method="post">
-                                                <button type="submit" class="btn button-royodele btn-xs">delete</button>
-                                            </form>
-                                        </div>-->
-                    <!--<span class="label label-warning">Krapulassa</span>-->
-
                 </div>
             </div>
         </div>
