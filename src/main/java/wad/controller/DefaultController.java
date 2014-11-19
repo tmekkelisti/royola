@@ -32,12 +32,7 @@ public class DefaultController {
     public String viewSignup(Model model) {
         return "signup";
     }
-    
-    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
-    public Story get(@PathVariable Long id, Model model) { 
-        return storyService.getStory(id);
-    }
-
+   
     @RequestMapping(method = RequestMethod.GET)
     public String view(Model model) throws UnsupportedEncodingException {
         List<Story> asd = new ArrayList<>();
