@@ -21,35 +21,55 @@
 
             <div class="row">
 
-<!--                <div>
-                    <div th:replace="fragments/navbar :: navbar">
-                        NAVBAR HERE
-                    </div>
-                </div>-->
-
-<!--                <div class="header">
-                    <h1 class="logo">Mitä eilen tapahtui?</h1>
-                </div>-->
-
                 <div>
-                    <div>
-                         <p th:text="${story.content}"></p>                        
+                    <div th:replace="fragments/navbar :: navbar">
                     </div>
                 </div>
-                
-                <!--<div sec:authorize="isAuthenticated()">-->
+                <div class="teaser">    
 
-<!--                <div th:replace="fragments/createStory :: storyForm">
-                        COMMENT FORM HERE
-                    </div>-->
-                <!--</div>-->
+                    <div sec:authorize="isAuthenticated()">
+                        <div id="delete" class="pull-right">                          
+                            <form th:action="@{/stories/delete/} + ${story.id}" method="post">
+                                <button type="submit" class="btn button-royodele btn-xs">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <br></br>    
+                    <p id="author" class="pull-left" th:text="${story.author}">Anonymous</p>
+                    <p id="date" class="pull-right" th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
+                    <br></br>
+                    <br></br>
+                    <p id="story" th:text="${story.content}"></p>
+                    <br></br>
 
-                
+                    <!-- COMMENT SECTION -->
+
+
+
+                </div>
+
+                <div class="teaser"> 
+                    <p id="comment-date"  th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
+                    <table class="comment-teaser">
+                        <tr>
+                            <td class="author">Anonymous: </td>
+                            <td class="comment">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus ipsum eget risus dignissim mollis. Quisque tincidunt lectus eu dolor ullamcorper, eu blandit nulla condimentum. Phasellus ut dui consectetur, sodales urna vel, pharetra enim. Etiam volutpat auctor molestie. Quisque iaculis nibh vel sem posuere, a finibus elit suscipit.  </td>
+                        </tr>
+                    </table>
+                    <p id="comment-date"  th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
+                    <table class="comment-teaser">
+                        <tr class="comment-tr">
+                            <td class="author">Anonymous: </td>
+                            <td class="comment">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus ipsum eget risus dignissim mollis. Quisque tincidunt lectus eu dolor ullamcorper, eu blandit nulla condimentum. Phasellus ut dui consectetur, sodales urna vel, pharetra enim. </td>
+                        </tr>
+                    </table>
+                </div>
 
                 <div th:replace="fragments/footer :: footer">
                     FOOTER HERE
                 </div>
-
             </div>
         </div>
         <!-- Core JavaScript Files -->

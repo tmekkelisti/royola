@@ -32,7 +32,9 @@ and open the template in the editor.
                     <div sec:authorize="isAuthenticated()">
                         <div id="delete" class="pull-right">                          
                             <form th:action="@{/stories/delete/} + ${story.id}" method="post">
-                                <button type="submit" class="btn button-royodele btn-xs">x</button>
+                                <button type="submit" class="btn button-royodele btn-xs">
+                                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  
+                                </button>
                             </form>
                         </div>
                     </div>
