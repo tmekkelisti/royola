@@ -32,9 +32,13 @@
                 </div>
 
                 <div sec:authorize="isAuthenticated()">
-<!--                    WIP-->
+                    <!--WIP-->
                     <div class="container">
-                        <button class="btn button-royola" id="Trigger" style="margin: 20px;">Kerro tarinasi</button>
+                        <button class="btn button-royola" id="Trigger" style="margin: 20px;">
+                            <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+                            Kerro tarinasi
+                            <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+                        </button>
                         <div id="Slider" class="slideup">
                             <div th:replace="fragments/createStory :: storyForm" id="Actual">
                                 STORY FORM HERE
