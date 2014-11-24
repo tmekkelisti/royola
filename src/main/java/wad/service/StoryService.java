@@ -23,7 +23,7 @@ public class StoryService {
     private StoryRepository storyRepository;
     
     @Autowired
-    private UserService userService;
+    private PersonService userService;
     
     public List<Story> list() {
         List<Story> stories = storyRepository.findAll();

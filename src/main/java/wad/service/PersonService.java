@@ -11,7 +11,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import wad.domain.Person;
-import wad.repository.UserRepository;
+import wad.repository.PersonRepository;
 
 /**
  *
@@ -19,10 +19,10 @@ import wad.repository.UserRepository;
  */
 
 @Service
-public class UserService {
+public class PersonService {
 
     @Autowired
-    private UserRepository userRepo;
+    private PersonRepository userRepo;
 
     @Transactional
     public Person getAuthenticatedPerson() {

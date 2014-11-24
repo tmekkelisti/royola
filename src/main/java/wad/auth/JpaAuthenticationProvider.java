@@ -12,13 +12,13 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Component;
 import wad.domain.Person;
-import wad.repository.UserRepository;
+import wad.repository.PersonRepository;
 
 @Component
 public class JpaAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
-    private UserRepository userRepository;
+    private PersonRepository userRepository;
 
     @Override
     public Authentication authenticate(Authentication a) throws AuthenticationException {

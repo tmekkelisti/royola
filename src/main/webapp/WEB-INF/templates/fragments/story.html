@@ -25,7 +25,7 @@ and open the template in the editor.
                 <div class="teaser">    
                     
                         <div id="storyId" class="pull-left">
-                            <form th:action="@{/stories/get/} + ${story.id}" method="get">
+                            <form th:action="@{/stories/} + ${story.id}" method="get">
                                 <button type="submit" class="btn button-royoid btn-xs" th:text="${story.storyId}">randomId</button>
                             </form>
                         </div>
