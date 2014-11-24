@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import wad.domain.Person;
-import wad.repository.UserRepository;
+import wad.repository.PersonRepository;
 
 /**
  *
@@ -22,7 +22,7 @@ import wad.repository.UserRepository;
 public class UserController {
 
     @Autowired
-    private UserRepository userRepo;
+    private PersonRepository userRepo;
 
     @RequestMapping(method = RequestMethod.POST)
     public String create(@ModelAttribute Person user) {

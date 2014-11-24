@@ -52,10 +52,10 @@ public class StoryController {
         return "redirect:/index";
     }
 
-    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
-    public String get(@PathVariable Long id, Model model) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public String singleStory(@PathVariable Long id, Model model) {
         model.addAttribute("story", storyService.getStory(id));
-        return "get";
+        return "singleStory";
     }
 
 }
