@@ -37,6 +37,11 @@ public class Story extends AbstractPersistable<Long> {
     @Column(length = 10)
     private String storyId;
     
+    @NotBlank
+    private String title;
+    
+    private String location;
+    
     public Story() {
         this.storyDate = new Date();
     }
@@ -64,6 +69,24 @@ public class Story extends AbstractPersistable<Long> {
     public void setAuthor(String author) {
         this.author = author;
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+    
+    
     
     public String getStoryId() {
         return storyId;
@@ -73,5 +96,7 @@ public class Story extends AbstractPersistable<Long> {
         String uuid = UUID.randomUUID().toString();
         this.storyId = uuid.substring(0, 7);
     }
+    
+    
 }
 
