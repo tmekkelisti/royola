@@ -5,6 +5,11 @@
 package wad.controller;
 
 import javax.validation.Valid;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Document.OutputSettings;
+import org.jsoup.safety.Cleaner;
+import org.jsoup.safety.Whitelist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +35,13 @@ public class StoryController {
     public String create(@Valid @ModelAttribute Story story) {
         // TODO: add person details in the future
 
+        String replaceAll = story.getContent().replaceAll("(\r\n|\n\r|\r|\n)", "<br />\n");
+        Whitelist whitelist = new Whitelist();
+        whitelist.addAttributes("br", "<br />\n");
+        String safe = Jsoup.clean(replaceAll, whitelist);
+        story.setContent(safe);
         storyService.addStory(story);
+
         return "redirect:/index";
     }
 
@@ -46,4 +57,5 @@ public class StoryController {
         model.addAttribute("story", storyService.getStory(id));
         return "get";
     }
+
 }

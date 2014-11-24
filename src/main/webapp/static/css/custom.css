@@ -141,7 +141,7 @@ tr.comment-tr {
     .comment-teaser {width: 320px;}
 }
 
-p#story{
+.story-content{
     color: white;
     text-align: left;
     -ms-word-break: break-all;
