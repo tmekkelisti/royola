@@ -13,12 +13,14 @@ and open the template in the editor.
         <script src="../../static/js/jquery.min.js" th:src="@{/static/js/jquery.min.js}"></script>
         <link href="../../static/css/style.css" th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="../../static/fonts/css/font-awesome.min.css" th:href="@{/static/fonts/css/font-awesome.min.css}" />
-        
+
         <title>TODO supply a title</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     </head>
     <body>
+
         <div class="teaser" th:fragment="storyForm">
             <div>
                 <form method="POST" th:action="@{/stories}" accept-charset="UTF-8">
@@ -28,5 +30,11 @@ and open the template in the editor.
                 </form>
             </div>
         </div>
+
+
+
+
+
+
     </body>
 </html>

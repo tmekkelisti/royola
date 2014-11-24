@@ -32,9 +32,14 @@
                 </div>
 
                 <div sec:authorize="isAuthenticated()">
-
-                    <div th:replace="fragments/createStory :: storyForm">
-                        STORY FORM HERE
+<!--                    WIP-->
+                    <div class="container">
+                        <button class="btn button-royola" id="Trigger" style="margin: 20px;">Kerro tarinasi</button>
+                        <div id="Slider" class="slideup">
+                            <div th:replace="fragments/createStory :: storyForm" id="Actual">
+                                STORY FORM HERE
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -53,5 +58,16 @@
         <!-- Core JavaScript Files -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="js/bootstrap.min.js" th:src="@{/static/js/bootstrap.min.js}"></script>
+        <script data-require="jquery@2.0.3" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+        <script>
+
+            $("#Trigger").click(function() {
+                $("#Slider").toggleClass("slidedown slideup");
+                //  if ($("#Slider").hasClass("slideup"))
+                //    $("#Slider").removeClass("slideup").addClass("slidedown");
+                //  else
+                //      $("#Slider").removeClass("slidedown").addClass("slideup");
+            });
+        </script>
     </body>
 </html>
