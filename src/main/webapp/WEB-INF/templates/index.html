@@ -29,13 +29,12 @@
 
                 <div class="header">
                     <h1 class="logo">Mitä eilen tapahtui?</h1>
-                    <h3 id="Trigger" class="share-story-title">Kerro tarinasi</h3>
                 </div>
 
                 <div sec:authorize="isAuthenticated()">
                     <!--WIP-->
                     <div class="container">
-
+                        <h2 id="Trigger" class="share-story-title">Kerro tarinasi</h2>
                         <div id="Slider" class="slideup">
                             <div th:replace="fragments/createStory :: storyForm" id="Actual">
                                 STORY FORM HERE
