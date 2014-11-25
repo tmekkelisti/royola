@@ -29,16 +29,13 @@
 
                 <div class="header">
                     <h1 class="logo">Mitä eilen tapahtui?</h1>
+                    <h3 id="Trigger" class="share-story-title">Kerro tarinasi</h3>
                 </div>
 
                 <div sec:authorize="isAuthenticated()">
                     <!--WIP-->
                     <div class="container">
-                        <button class="btn button-royola" id="Trigger" style="margin: 20px;">
-                            <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-                            Kerro tarinasi
-                            <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-                        </button>
+
                         <div id="Slider" class="slideup">
                             <div th:replace="fragments/createStory :: storyForm" id="Actual">
                                 STORY FORM HERE

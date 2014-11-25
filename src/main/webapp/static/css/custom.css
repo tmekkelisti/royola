@@ -7,13 +7,36 @@ body {
 h1, h2 ,h3 ,h4, h5, h6 {
     font-family:'Open Sans', Helvetica, Arial, sans-serif;
     font-weight:100;
-    margin: 1em 0 1em 0;
+    margin: 1em 0 10px 0;
 }
 h1{
     font-size: 4em;
 }
 h1.logo,h2.logo,h3.logo,h4.logo,h5.logo,h6.logo {
     font-family:Pacifico, Helvetica, Arial, sans-serif;
+}
+
+.single-story-title {
+    font-weight:100;
+    font-family:Pacifico, Helvetica, Arial, sans-serif;
+    margin-top: 15px;
+
+}
+
+.share-story-title {  
+    font-weight:100;
+    font-family:Pacifico, Helvetica, Arial, sans-serif;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+
+}
+
+.share-story-title:hover {
+    
+    color: #dcdcdc;
+    transform: scale(1.3);
+    
 }
 
 a.logo {
@@ -144,15 +167,12 @@ tr.comment-tr {
 .story-content{
     color: white;
     text-align: left;
-    -ms-word-break: break-all;
-    word-break: break-all;
+    -ms-word-break: keep-all;
+    word-break: keep-all;
 
     position: relative;
 
-    min-height: auto;
-    max-height: auto;    
     /* Non standard for webkit */
-    word-break: break-word;
 
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
