@@ -34,15 +34,10 @@ public class DefaultController {
     }
     
     @RequestMapping(method = RequestMethod.GET)
-    public String view(Model model) throws UnsupportedEncodingException {
+    public String view(Model model) {
         List<Story> asd = new ArrayList<>();
         if (!storyService.list().isEmpty()) {
-            for (Story story : storyService.list()) {
-                byte[] iso = story.getContent().getBytes("ISO-8859-1");
-                story.setContent(new String(iso, "UTF-8"));
-                asd.add(story);
-            }
-            model.addAttribute("stories", asd);
+            model.addAttribute("stories", storyService.list());
         }
         model.addAttribute("user", currentUser());
         return "index";
