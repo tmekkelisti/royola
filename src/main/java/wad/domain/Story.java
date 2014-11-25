@@ -5,14 +5,13 @@
 package wad.domain;
 
 import java.util.Date;
-import java.util.TimeZone;
 import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -38,6 +37,7 @@ public class Story extends AbstractPersistable<Long> {
     private String storyId;
     
     @NotBlank
+    @Length(min = 5, max = 30)
     private String title;
     
     private String location;

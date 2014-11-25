@@ -23,12 +23,16 @@ and open the template in the editor.
 
         <div class="teaser" th:fragment="storyForm">
             <div>
-                <form method="POST" th:action="@{/stories}" accept-charset="UTF-8">
+                <form method="POST" th:action="@{/stories}" accept-charset="UTF-8">                    
                     <div class="form-inline">
-                    <input type="text" name="title" class="form-control" placeholder="Tarinan otsikko" style="margin: 5px 0px; width: 49.5%"></input>
-                    <input type="text" name="location" class="form-control" placeholder="Sijainti" style="margin: 5px 0px; width: 49.5%"></input>
+                        <input type="text" name="title" class="form-control" placeholder="Tarinan otsikko" 
+                               style="margin: 5px 0px; width: 49.5%"></input>
+                               
+                        <input type="text" name="location" class="form-control" placeholder="Sijainti" 
+                               style="margin: 5px 0px; width: 49.5%"></input>
                     </div>
-                    <textarea class="form-control" rows="5" name="content" placeholder="Kirjoita tarinasi tähän." onkeypress="CheckLength()"></textarea>
+                    <textarea class="form-control" rows="5" name="content" placeholder="Kirjoita tarinasi tähän." 
+                              onkeypress="CheckLength()"></textarea>
                     <br></br>
                     <div><button type="submit" class="btn button-royola btn-block" value="Send" >Julkaise tarina!</button></div>
                 </form>

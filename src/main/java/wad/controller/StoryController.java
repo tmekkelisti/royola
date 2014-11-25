@@ -10,6 +10,7 @@ import org.jsoup.safety.Whitelist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,9 +30,13 @@ public class StoryController {
     private StoryService storyService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public String create(@Valid @ModelAttribute Story story) {
+    public String create(@Valid @ModelAttribute Story story, BindingResult br) {
         // TODO: add person details in the future
 
+        if(br.hasErrors()){
+            return "redirect:/index";
+        }
+        
         String replaceAll = story.getContent().replaceAll("(\r\n|\n\r|\r|\n)", "<br />\n");
         Whitelist whitelist = new Whitelist();
         whitelist.addAttributes("br", "<br />\n");
