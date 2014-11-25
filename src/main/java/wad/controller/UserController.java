@@ -5,13 +5,15 @@
  */
 package wad.controller;
 
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import wad.domain.Person;
-import wad.repository.UserRepository;
+import wad.repository.PersonRepository;
 
 /**
  *
@@ -22,10 +24,15 @@ import wad.repository.UserRepository;
 public class UserController {
 
     @Autowired
-    private UserRepository userRepo;
+    private PersonRepository userRepo;
 
     @RequestMapping(method = RequestMethod.POST)
-    public String create(@ModelAttribute Person user) {
+    public String create(@Valid @ModelAttribute Person user, BindingResult br) {
+        
+        if(br.hasErrors()){
+            return "signup";
+        }
+        
         userRepo.save(user);
         return "redirect:/login";
     }

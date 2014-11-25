@@ -13,20 +13,36 @@ and open the template in the editor.
         <script src="../../static/js/jquery.min.js" th:src="@{/static/js/jquery.min.js}"></script>
         <link href="../../static/css/style.css" th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="../../static/fonts/css/font-awesome.min.css" th:href="@{/static/fonts/css/font-awesome.min.css}" />
-        
+
         <title>TODO supply a title</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     </head>
     <body>
+
         <div class="teaser" th:fragment="storyForm">
             <div>
-                <form method="POST" th:action="@{/stories}" accept-charset="UTF-8">
-                    <textarea class="form-control" rows="5" name="content" placeholder="Kirjoita tarinasi tähän." onkeypress="CheckLength()"></textarea>
+                <form method="POST" th:action="@{/stories}" accept-charset="UTF-8">                    
+                    <div class="form-inline">
+                        <input type="text" name="title" class="form-control" placeholder="Tarinan otsikko" 
+                               style="margin: 5px 0px; width: 49.5%"></input>
+                               
+                        <input type="text" name="location" class="form-control" placeholder="Sijainti" 
+                               style="margin: 5px 0px; width: 49.5%"></input>
+                    </div>
+                    <textarea class="form-control" rows="5" name="content" placeholder="Kirjoita tarinasi tähän." 
+                              onkeypress="CheckLength()"></textarea>
                     <br></br>
                     <div><button type="submit" class="btn button-royola btn-block" value="Send" >Julkaise tarina!</button></div>
                 </form>
             </div>
         </div>
+
+
+
+
+
+
     </body>
 </html>

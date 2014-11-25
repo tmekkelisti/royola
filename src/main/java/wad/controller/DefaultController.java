@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import wad.domain.Story;
 import wad.service.StoryService;
-import wad.service.UserService;
+import wad.service.PersonService;
 
 @Controller
 @RequestMapping("*")
@@ -21,7 +21,7 @@ public class DefaultController {
     private StoryService storyService;
     
     @Autowired
-    private UserService userService;
+    private PersonService userService;
 
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public String viewLogin(Model model) {

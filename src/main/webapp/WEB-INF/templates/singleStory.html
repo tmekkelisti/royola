@@ -36,12 +36,20 @@
                             </form>
                         </div>
                     </div>
-                    <br></br>    
-                    <p id="author" class="pull-left" th:text="${story.author}">Anonymous</p>
-                    <p id="date" class="pull-right" th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
                     <br></br>
-                    <br></br>
-                    <p id="story" th:text="${story.content}"></p>
+                    <div class="pull-left">
+                        <h3 class="single-story-title" id="title" th:text="${story.title}">Title</h3>
+                    </div>
+                    <div class="pull-right">
+                        <p id="location" th:text="${story.location}">location</p>
+                        <p id="date" th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
+                    </div>
+                    <br /><br /><br /><br />
+                    <div class="story-content" id="story" th:utext="${story.content}"></div>
+                    <br/>
+                    <div class="pull-left">
+                        <p id="author" th:text="${story.author}">Anonymous</p>
+                    </div>
                     <br></br>
 
                     <!-- COMMENT SECTION -->

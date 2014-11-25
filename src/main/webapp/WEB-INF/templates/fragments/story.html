@@ -25,8 +25,8 @@ and open the template in the editor.
                 <div class="teaser">    
                     
                         <div id="storyId" class="pull-left">
-                            <form th:action="@{/stories/get/} + ${story.id}" method="get">
-                                <button type="submit" class="btn button-royoid btn-xs" th:text="${story.storyId}">randomId</button>
+                            <form th:action="@{/stories/} + ${story.id}" method="get">
+                                <button type="submit" class="btn button-royoid btn-xs" th:text="${story.title}">randomId</button>
                             </form>
                         </div>
                     <div sec:authorize="isAuthenticated()">
@@ -43,7 +43,7 @@ and open the template in the editor.
                     <p id="date" class="pull-right" th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
                     <br></br>
                     <br></br>
-                    <p id="story" th:text="${story.content}"></p>
+                    <div class="story-content" id="story" th:utext="${story.content}"></div>
                     <br></br>
                 </div>
             </div>

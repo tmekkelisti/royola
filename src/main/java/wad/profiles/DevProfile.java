@@ -1,12 +1,12 @@
 package wad.profiles;
 
-import java.util.UUID;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import wad.domain.Story;
-import wad.repository.StoryRepository;
+import wad.domain.Person;
+import wad.repository.PersonRepository;
+import wad.service.PersonService;
 
 @Configuration
 @Profile(value = {"dev", "default"})
@@ -27,4 +27,16 @@ public class DevProfile {
 //            storyRepository.save(newStory);
 //        }
 //    }
+    
+    @Autowired
+    private PersonRepository personRepo;
+    
+    @PostConstruct
+    public void init(){
+        Person postman = new Person();
+        postman.setUsername("postman");
+        postman.setPassword("asd");
+        personRepo.save(postman);
+    }
+    
 }

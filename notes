@@ -10,4 +10,9 @@ public String view(Model model) throws UnsupportedEncodingException {
         return "index";
     }
     
-käännetää toi roska vaa unicodeks tulostaessa    
+
+-------------------------------------
+heroku postgresql db
+
+db drop: heroku pg:reset DATABASE_URL
+locale: heroku config:add LC_ALL=fi_FI.UTF-8 
