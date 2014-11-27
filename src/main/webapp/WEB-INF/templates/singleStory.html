@@ -55,31 +55,38 @@
                     <!-- COMMENT SECTION -->
 
                 </div>
-                
-                
+                <div th:text="${viesti}"></div>
                 <div th:each="comment : ${comments}">
-                    
-                    <p th:text="${comment.author}">kommentaattorin nimi</p>
-                    <p th:text="${comment.body}">tähän kommenttia</p>
-                    
-                </div>
-                
-                
-                
-                <div class="teaser">
-                
-                <form method="POST" th:action="@{/stories/} + ${story.storyId}" accept-charset="UTF-8">                    
 
-                    <textarea class="form-control" rows="5" name="body" placeholder="Kirjoita kommenttisi tähän." 
-                              onkeypress="CheckLength()"></textarea>
-                    <br></br>
-                    <div><button type="submit" class="btn button-royola btn-block" value="Send" >Julkaise kommentti</button></div>
-                </form>
-                
-                </div>
-                
+                    <div class="teaser">
 
-                <div class="teaser"> 
+                        <p id="author" class="pull-left" th:text="${comment.author}">kommentaattorin nimi</p>
+                        <p id="date" class="pull-right" th:text="${#calendars.format(comment.commentDate,'dd/MM/yyyy HH:mm')}"></p>
+                        <br/><br/>
+                        <p class="story-content" id="story" th:text="${comment.body}">tähän kommenttia</p>
+
+                    </div>
+
+                </div>
+
+                <div sec:authorize="isAuthenticated()">
+
+                    <div class="teaser">
+
+                        <form method="POST" th:action="@{/stories/} + ${story.storyId}" accept-charset="UTF-8">                    
+
+                            <textarea class="form-control" rows="5" name="body" placeholder="Kirjoita kommenttisi tähän." 
+                                      onkeypress="CheckLength()"></textarea>
+                            <br></br>
+                            <div><button type="submit" class="btn button-royola btn-block" value="Send" >Julkaise kommentti</button></div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+<!--                <div class="teaser"> 
                     <p id="comment-date"  th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
                     <table class="comment-teaser">
                         <tr>
@@ -94,7 +101,7 @@
                             <td class="comment">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus ipsum eget risus dignissim mollis. Quisque tincidunt lectus eu dolor ullamcorper, eu blandit nulla condimentum. Phasellus ut dui consectetur, sodales urna vel, pharetra enim. </td>
                         </tr>
                     </table>
-                </div>
+                </div>-->
 
                 <div th:replace="fragments/footer :: footer">
                     FOOTER HERE

@@ -62,6 +62,11 @@ public class StoryController {
         if (!storyService.getStory(id).getComments().isEmpty()) {
             model.addAttribute("comments", storyService.getStory(id).getComments());
         }
+        
+        else {
+            
+            model.addAttribute("viesti", "Ei kommentteja");
+        }
 
         return "singleStory";
     }

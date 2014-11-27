@@ -1,12 +1,16 @@
 package wad.domain;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Comment {
@@ -17,11 +21,29 @@ public class Comment {
     private Long commentID;
 
     private String author;
+
+    @Lob
+    @Column(length = 10000)
     private String body;
 
     @ManyToOne
     @JoinColumn(name = "STORY_ID")
     private Story story;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date commentDate;
+
+    public Comment() {
+        this.commentDate = new Date();
+    }
+
+    public Date getCommentDate() {
+        return commentDate;
+    }
+
+    public void setCommentDate(Date commentDate) {
+        this.commentDate = commentDate;
+    }
 
     public Long getCommentID() {
         return commentID;
@@ -46,8 +68,6 @@ public class Comment {
     public void setBody(String body) {
         this.body = body;
     }
-
-
 
     public Story getStory() {
         return story;
