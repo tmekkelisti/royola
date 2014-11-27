@@ -29,7 +29,7 @@
 
                     <div sec:authorize="isAuthenticated()">
                         <div id="delete" class="pull-right">                          
-                            <form th:action="@{/stories/delete/} + ${story.id}" method="post">
+                            <form th:action="@{/stories/delete/} + ${story.storyId}" method="post">
                                 <button type="submit" class="btn button-royodele btn-xs">
                                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  
                                 </button>
@@ -54,9 +54,30 @@
 
                     <!-- COMMENT SECTION -->
 
-
-
                 </div>
+                
+                
+                <div th:each="comment : ${comments}">
+                    
+                    <p th:text="${comment.author}">kommentaattorin nimi</p>
+                    <p th:text="${comment.body}">tähän kommenttia</p>
+                    
+                </div>
+                
+                
+                
+                <div class="teaser">
+                
+                <form method="POST" th:action="@{/stories/} + ${story.storyId}" accept-charset="UTF-8">                    
+
+                    <textarea class="form-control" rows="5" name="body" placeholder="Kirjoita kommenttisi tähän." 
+                              onkeypress="CheckLength()"></textarea>
+                    <br></br>
+                    <div><button type="submit" class="btn button-royola btn-block" value="Send" >Julkaise kommentti</button></div>
+                </form>
+                
+                </div>
+                
 
                 <div class="teaser"> 
                     <p id="comment-date"  th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
