@@ -31,6 +31,8 @@
                     <h1 class="logo">Mitä eilen tapahtui?</h1>
                 </div>
 
+                <div sec:authorize="not isAuthenticated()"><br/><br/><br/></div>
+
                 <div sec:authorize="isAuthenticated()">
                     <!--WIP-->
                     <div class="container">
