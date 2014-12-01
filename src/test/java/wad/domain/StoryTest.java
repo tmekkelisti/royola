@@ -36,6 +36,25 @@ public class StoryTest {
     }
     
     @Test
+    public void settingLocationWorks() {
+        testStory.setLocation("test");
+        Assert.assertEquals("test", testStory.getLocation());
+    }
+    
+    @Test
+    public void settingAuthorWorks() {
+        testStory.setAuthor("test");
+        Assert.assertEquals("test", testStory.getAuthor());
+    }
+    
+    @Test
+    public void settingStoryIdWorks() {
+        Long id = 12L;
+        testStory.setStoryId(12L);
+        Assert.assertEquals(id, testStory.getStoryId());
+    }
+    
+    @Test
     public void settingContentWorks() {
         testStory.setContent("test");
         Assert.assertEquals("test", testStory.getContent());
@@ -51,5 +70,4 @@ public class StoryTest {
         
         Assert.assertEquals(calendar.getTime(), testStory.getStoryDate());
     }
-    
 }

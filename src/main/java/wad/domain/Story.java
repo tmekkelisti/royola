@@ -43,9 +43,7 @@ public class Story {
     private String content;
     
     @Column(length = 50)
-    private String author;
-    
-   
+    private String author; 
     
     @NotBlank
     @Length(min = 5, max = 30)
