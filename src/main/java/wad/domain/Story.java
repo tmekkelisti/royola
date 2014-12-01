@@ -4,11 +4,17 @@
  */
 package wad.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.UUID;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import org.hibernate.validator.constraints.Length;
@@ -20,7 +26,13 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
  * @author royola
  */
 @Entity
-public class Story extends AbstractPersistable<Long> {
+public class Story {
+    
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name="STORY_ID")
+    private Long storyId;
+    
     
     @Temporal(TemporalType.TIMESTAMP)
     private Date storyDate;
@@ -33,14 +45,16 @@ public class Story extends AbstractPersistable<Long> {
     @Column(length = 50)
     private String author;
     
-    @Column(length = 10)
-    private String storyId;
+   
     
     @NotBlank
     @Length(min = 5, max = 30)
     private String title;
     
     private String location;
+    
+    @OneToMany(mappedBy = "story", cascade = CascadeType.ALL)
+    private List<Comment> comments = new ArrayList<>();
     
     public Story() {
         this.storyDate = new Date();
@@ -85,17 +99,25 @@ public class Story extends AbstractPersistable<Long> {
     public void setLocation(String location) {
         this.location = location;
     }
-    
-    
-    
-    public String getStoryId() {
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public Long getStoryId() {
         return storyId;
     }
-    
-    public void setStoryId() {
-        String uuid = UUID.randomUUID().toString();
-        this.storyId = uuid.substring(0, 7);
+
+    public void setStoryId(Long storyId) {
+        this.storyId = storyId;
     }
+    
+    
+
     
     
 }

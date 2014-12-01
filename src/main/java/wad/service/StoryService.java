@@ -5,11 +5,14 @@
 package wad.service;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import wad.domain.Comment;
 import wad.domain.Story;
+import wad.repository.CommentRepository;
 import wad.repository.StoryRepository;
 
 /**
@@ -25,6 +28,9 @@ public class StoryService {
     @Autowired
     private PersonService userService;
     
+    @Autowired
+    private CommentRepository commentRepo;
+    
     public List<Story> list() {
         List<Story> stories = storyRepository.findAll();
         Collections.reverse(stories);
@@ -33,7 +39,6 @@ public class StoryService {
     
     @Transactional
     public void addStory(Story story) {
-        story.setStoryId();
         story.setAuthor(userService.getAuthenticatedPerson().getUsername());
         storyRepository.save(story);
     }
@@ -47,4 +52,13 @@ public class StoryService {
     public Story getStory(Long id) {
         return storyRepository.findOne(id);
     }
+    
+    @Transactional
+    public void addCommentToStory(Comment comment, Long storyId){
+        comment.setAuthor(userService.getAuthenticatedPerson().getUsername());
+        comment.setStory(storyRepository.findOne(storyId));
+        commentRepo.save(comment);
+        storyRepository.findOne(storyId).getComments().add(comment);
+    }
+    
 }

@@ -25,13 +25,13 @@ and open the template in the editor.
                 <div class="teaser">    
                     
                         <div id="storyId" class="pull-left">
-                            <form th:action="@{/stories/} + ${story.id}" method="get">
+                            <form th:action="@{/stories/} + ${story.storyId}" method="get">
                                 <button type="submit" class="btn button-royoid btn-xs" th:text="${story.title}">randomId</button>
                             </form>
                         </div>
                     <div sec:authorize="isAuthenticated()">
                         <div id="delete" class="pull-right">                          
-                            <form th:action="@{/stories/delete/} + ${story.id}" method="post">
+                            <form th:action="@{/stories/delete/} + ${story.storyId}" method="post">
                                 <button type="submit" class="btn button-royodele btn-xs">
                                   <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  
                                 </button>

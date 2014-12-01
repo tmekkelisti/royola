@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import wad.domain.Comment;
 import wad.domain.Story;
 import wad.service.StoryService;
 
@@ -33,10 +34,10 @@ public class StoryController {
     public String create(@Valid @ModelAttribute Story story, BindingResult br) {
         // TODO: add person details in the future
 
-        if(br.hasErrors()){
+        if (br.hasErrors()) {
             return "redirect:/index";
         }
-        
+
         String replaceAll = story.getContent().replaceAll("(\r\n|\n\r|\r|\n)", "<br />\n");
         Whitelist whitelist = new Whitelist();
         whitelist.addAttributes("br", "<br />\n");
@@ -57,7 +58,25 @@ public class StoryController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String singleStory(@PathVariable Long id, Model model) {
         model.addAttribute("story", storyService.getStory(id));
+
+        if (!storyService.getStory(id).getComments().isEmpty()) {
+            model.addAttribute("comments", storyService.getStory(id).getComments());
+        }
+        
+        else {
+            
+            model.addAttribute("viesti", "Ei kommentteja");
+        }
+
         return "singleStory";
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
+    public String addComment(@PathVariable Long id, @ModelAttribute Comment comment) {
+
+        storyService.addCommentToStory(comment, id);
+
+        return "redirect:/stories/{id}";
     }
 
 }
