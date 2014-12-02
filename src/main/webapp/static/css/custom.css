@@ -397,14 +397,7 @@ tr.comment-tr {
 .button-royodele {
     border: 0px solid #ffffff;
     background: rgba(0, 10, 10, 0.38);
-    /*   background: -webkit-gradient(linear, left top, left bottom, from(#ff5757), to(#ff4c4c));
-       background: -webkit-linear-gradient(top, #ff5757, #ff4c4c);
-       background: -moz-linear-gradient(top, #ff5757, #ff4c4c);
-       background: -ms-linear-gradient(top, #ff5757, #ff4c4c);
-       background: -o-linear-gradient(top, #ff5757, #ff4c4c);
-       background-image: -ms-linear-gradient(top, #ff5757 0%, #ff4c4c 100%);*/
     border-radius: 3px;
-    text-shadow: #000000 0 1px 0;
     color: #ffffff;
     font-size: 13px;
     text-decoration: none;
@@ -412,21 +405,21 @@ tr.comment-tr {
     margin: -25px -5px;
 }
 
+.button-royodele:hover {
+    color: #B6D9BB;
+}
+
+.button-royodele:active {
+    color: #4c9982;
+}
+
 .button-royoid {
     border: 0px solid #ffffff;
     background: rgba(0, 10, 10, 0.38);
-    /*   background: -webkit-gradient(linear, left top, left bottom, from(#ff5757), to(#ff4c4c));
-       background: -webkit-linear-gradient(top, #ff5757, #ff4c4c);
-       background: -moz-linear-gradient(top, #ff5757, #ff4c4c);
-       background: -ms-linear-gradient(top, #ff5757, #ff4c4c);
-       background: -o-linear-gradient(top, #ff5757, #ff4c4c);
-       background-image: -ms-linear-gradient(top, #ff5757 0%, #ff4c4c 100%);*/
     padding: 1px 6px;
     border-radius: 3px;
-    text-shadow: #000000 0 1px 0;
     color: #ffffff;
     font-size: 14px;
-
     text-decoration: none;
     vertical-align: text-top;
     margin: -25px -5px;

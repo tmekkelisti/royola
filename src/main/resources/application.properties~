@@ -2,3 +2,4 @@
 spring.thymeleaf.cache=false
 spring.thymeleaf.prefix=/WEB-INF/templates/
 spring.thymeleaf.suffix=.html
+spring.thymeleaf.check-template-location=false
