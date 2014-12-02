@@ -48,7 +48,13 @@
                     <div class="story-content" id="story" th:utext="${story.content}"></div>
                     <br/>
                     <div class="pull-left">
-                        <p id="author" th:text="${story.author}">Anonymous</p>
+
+                        <a id="author" th:href="@{/users/} + ${personId}" th:text="${story.author}">Anonymous</a>
+
+                        <!--                        <form th:action="@{/users/} + ${personId}" method="get">
+                                                    <button type="submit" class="btn button-royoid btn-xs" th:text="${story.author}">Anonymous</button>
+                                                </form>-->
+                        <!--                        <p id="author" th:text="${story.author}">Anonymous</p>-->
                     </div>
                     <br></br>
 
@@ -57,14 +63,19 @@
                 </div>
                 <div class="teaser">
                     <h3 id="comments" class="comments-title">Kommentit</h3>
-                    <div th:if="${comments == null}">                 
-                        <p>Ei kommentteja, ole ensimmäinen!</p>            
+                    <div th:if="${comments == null}">  
+                        <div sec:authorize="isAuthenticated()">
+                            <p>Ei kommentteja, ole ensimmäinen!</p>            
+                        </div>
+                        <div sec:authorize="not isAuthenticated()">
+                            <p>Ei kommentteja, kirjaudu sisään ja ole ensimmäinen!</p>            
+                        </div>
                     </div>
 
                     <div th:each="comment : ${comments}">
 
                         <div class="comment-teaser">
-                            <p id="author" class="pull-left" th:text="${comment.author}">kommentaattorin nimi</p>
+                            <a class="pull-left" id="author" th:href="@{/users/} + ${personId}" th:text="${story.author}">Anonymous</a>
                             <p id="date" class="pull-right" th:text="${#calendars.format(comment.commentDate,'dd/MM/yyyy HH:mm')}"></p>
                             <br/><br/>
                             <p class="story-content" id="story" th:utext="${comment.body}">tähän kommenttia</p>

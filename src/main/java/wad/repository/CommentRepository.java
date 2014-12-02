@@ -6,6 +6,7 @@
 
 package wad.repository;
 
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import wad.domain.Comment;
 
@@ -15,5 +16,8 @@ import wad.domain.Comment;
  */
 
 public interface CommentRepository extends JpaRepository<Comment, Long>{
+    
+    List<Comment> findByAuthor(String author);
+    
     
 }

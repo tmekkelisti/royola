@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import wad.domain.Comment;
 import wad.domain.Story;
+import wad.repository.PersonRepository;
 import wad.service.StoryService;
 
 /**
@@ -29,6 +30,9 @@ public class StoryController {
 
     @Autowired
     private StoryService storyService;
+
+    @Autowired
+    private PersonRepository personRepo;
 
     @RequestMapping(method = RequestMethod.POST)
     public String create(@Valid @ModelAttribute Story story, BindingResult br) {
@@ -53,10 +57,13 @@ public class StoryController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String singleStory(@PathVariable Long id, Model model) {
-        model.addAttribute("story", storyService.getStory(id));
-
+        Story story = storyService.getStory(id);
+        Long personId = personRepo.findByUsername(story.getAuthor()).getId();
+        model.addAttribute("story", story);
+        model.addAttribute("personId", personId);
         if (!storyService.getStory(id).getComments().isEmpty()) {
             model.addAttribute("comments", storyService.getStory(id).getComments());
+
         }
 
         return "singleStory";

@@ -21,44 +21,50 @@ import wad.repository.StoryRepository;
  */
 @Service
 public class StoryService {
-    
+
     @Autowired
     private StoryRepository storyRepository;
-    
+
     @Autowired
     private PersonService userService;
-    
+
     @Autowired
     private CommentRepository commentRepo;
-    
+
     public List<Story> list() {
         List<Story> stories = storyRepository.findAll();
         Collections.reverse(stories);
         return stories;
     }
-    
+
     @Transactional
     public void addStory(Story story) {
         story.setAuthor(userService.getAuthenticatedPerson().getUsername());
         storyRepository.save(story);
     }
-    
+
     @Transactional
     public void deleteStory(Long id) {
         storyRepository.delete(storyRepository.findOne(id));
     }
-    
+
     @Transactional
     public Story getStory(Long id) {
         return storyRepository.findOne(id);
     }
-    
+
     @Transactional
-    public void addCommentToStory(Comment comment, Long storyId){
+    public void addCommentToStory(Comment comment, Long storyId) {
         comment.setAuthor(userService.getAuthenticatedPerson().getUsername());
         comment.setStory(storyRepository.findOne(storyId));
         commentRepo.save(comment);
         storyRepository.findOne(storyId).getComments().add(comment);
+    }
+
+    public List<Comment> commentsListByAuthor(String author) {
+        
+        List<Comment> comments = commentRepo.findByAuthor(author); 
+        return comments;
     }
     
 }

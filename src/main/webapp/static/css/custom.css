@@ -26,7 +26,7 @@ h1.logo,h2.logo,h3.logo,h4.logo,h5.logo,h6.logo {
 }
 
 .signup-title {
-    
+
     margin: 50px 0 20px 0;
 }
 
@@ -135,10 +135,21 @@ hr.social:after {
     transition: all .2s ease-in-out;
 }
 
+a#author{
+    text-align: left;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
 p#author{
     text-align: left;
     color: white;
     font-weight: bold;
+}
+
+a#author:hover {
+    color: darkgrey;
 }
 
 p#date{

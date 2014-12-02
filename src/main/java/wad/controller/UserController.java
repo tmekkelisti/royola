@@ -8,12 +8,16 @@ package wad.controller;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import wad.domain.Person;
 import wad.repository.PersonRepository;
+import wad.service.PersonService;
+import wad.service.StoryService;
 
 /**
  *
@@ -25,6 +29,12 @@ public class UserController {
 
     @Autowired
     private PersonRepository userRepo;
+    
+    @Autowired
+    private StoryService storyService;
+    
+    @Autowired
+    private PersonService personService;
 
     @RequestMapping(method = RequestMethod.POST)
     public String create(@Valid @ModelAttribute Person user, BindingResult br) {
@@ -35,6 +45,13 @@ public class UserController {
         
         userRepo.save(user);
         return "redirect:/login";
+    }
+    
+    @RequestMapping(value="/{id}", method = RequestMethod.GET)
+    public String view(@PathVariable Long id, Model model) {
+        
+        model.addAttribute("comments", storyService.commentsListByAuthor(userRepo.findOne(id).getUsername()));
+        return "user";   
     }
 
 }
