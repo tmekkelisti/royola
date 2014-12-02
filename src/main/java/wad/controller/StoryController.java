@@ -38,11 +38,7 @@ public class StoryController {
             return "redirect:/index";
         }
 
-        String replaceAll = story.getContent().replaceAll("(\r\n|\n\r|\r|\n)", "<br />\n");
-        Whitelist whitelist = new Whitelist();
-        whitelist.addAttributes("br", "<br />\n");
-        String safe = Jsoup.clean(replaceAll, whitelist);
-        story.setContent(safe);
+        story.setContent(safeContent(story.getContent()));
         storyService.addStory(story);
 
         return "redirect:/index";
@@ -62,21 +58,33 @@ public class StoryController {
         if (!storyService.getStory(id).getComments().isEmpty()) {
             model.addAttribute("comments", storyService.getStory(id).getComments());
         }
-        
-        else {
-            
-            model.addAttribute("viesti", "Ei kommentteja");
-        }
 
         return "singleStory";
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)
-    public String addComment(@PathVariable Long id, @ModelAttribute Comment comment) {
+    public String addComment(@PathVariable Long id, @Valid @ModelAttribute Comment comment, BindingResult br) {
 
+        if (br.hasErrors()) {
+
+            return "redirect:/stories/{id}";
+        }
+
+        comment.setBody(safeContent(comment.getBody()));
         storyService.addCommentToStory(comment, id);
 
-        return "redirect:/stories/{id}";
+        return "redirect:/stories/{id}#comments";
+    }
+
+    public String safeContent(String content) {
+
+        String replaceAll = content.replaceAll("(\r\n|\n\r|\r|\n)", "<br />\n");
+        Whitelist whitelist = new Whitelist();
+        whitelist.addAttributes("br", "<br />\n");
+        String safe = Jsoup.clean(replaceAll, whitelist);
+
+        return safe;
+
     }
 
 }

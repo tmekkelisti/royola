@@ -11,6 +11,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 public class Comment {
@@ -24,6 +25,7 @@ public class Comment {
 
     @Lob
     @Column(length = 10000)
+    @NotBlank
     private String body;
 
     @ManyToOne

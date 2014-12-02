@@ -55,23 +55,26 @@
                     <!-- COMMENT SECTION -->
 
                 </div>
-                <div th:text="${viesti}"></div>
-                <div th:each="comment : ${comments}">
-
-                    <div class="teaser">
-
-                        <p id="author" class="pull-left" th:text="${comment.author}">kommentaattorin nimi</p>
-                        <p id="date" class="pull-right" th:text="${#calendars.format(comment.commentDate,'dd/MM/yyyy HH:mm')}"></p>
-                        <br/><br/>
-                        <p class="story-content" id="story" th:text="${comment.body}">tähän kommenttia</p>
-
+                <div class="teaser">
+                    <h3 id="comments" class="comments-title">Kommentit</h3>
+                    <div th:if="${comments == null}">                 
+                        <p>Ei kommentteja, ole ensimmäinen!</p>            
                     </div>
 
-                </div>
+                    <div th:each="comment : ${comments}">
 
-                <div sec:authorize="isAuthenticated()">
+                        <div class="comment-teaser">
+                            <p id="author" class="pull-left" th:text="${comment.author}">kommentaattorin nimi</p>
+                            <p id="date" class="pull-right" th:text="${#calendars.format(comment.commentDate,'dd/MM/yyyy HH:mm')}"></p>
+                            <br/><br/>
+                            <p class="story-content" id="story" th:utext="${comment.body}">tähän kommenttia</p>
 
-                    <div class="teaser">
+                        </div>
+                    </div>
+
+                    <div sec:authorize="isAuthenticated()">
+
+                        <h3 class="add-comment-title">Lisää kommentti</h3>
 
                         <form method="POST" th:action="@{/stories/} + ${story.storyId}" accept-charset="UTF-8">                    
 
@@ -81,27 +84,29 @@
                             <div><button type="submit" class="btn button-royola btn-block" value="Send" >Julkaise kommentti</button></div>
                         </form>
 
+
                     </div>
 
                 </div>
 
 
-<!--                <div class="teaser"> 
-                    <p id="comment-date"  th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
-                    <table class="comment-teaser">
-                        <tr>
-                            <td class="author">Anonymous: </td>
-                            <td class="comment">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus ipsum eget risus dignissim mollis. Quisque tincidunt lectus eu dolor ullamcorper, eu blandit nulla condimentum. Phasellus ut dui consectetur, sodales urna vel, pharetra enim. Etiam volutpat auctor molestie. Quisque iaculis nibh vel sem posuere, a finibus elit suscipit.  </td>
-                        </tr>
-                    </table>
-                    <p id="comment-date"  th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
-                    <table class="comment-teaser">
-                        <tr class="comment-tr">
-                            <td class="author">Anonymous: </td>
-                            <td class="comment">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus ipsum eget risus dignissim mollis. Quisque tincidunt lectus eu dolor ullamcorper, eu blandit nulla condimentum. Phasellus ut dui consectetur, sodales urna vel, pharetra enim. </td>
-                        </tr>
-                    </table>
-                </div>-->
+
+                <!--                <div class="teaser"> 
+                                    <p id="comment-date"  th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
+                                    <table class="comment-teaser">
+                                        <tr>
+                                            <td class="author">Anonymous: </td>
+                                            <td class="comment">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus ipsum eget risus dignissim mollis. Quisque tincidunt lectus eu dolor ullamcorper, eu blandit nulla condimentum. Phasellus ut dui consectetur, sodales urna vel, pharetra enim. Etiam volutpat auctor molestie. Quisque iaculis nibh vel sem posuere, a finibus elit suscipit.  </td>
+                                        </tr>
+                                    </table>
+                                    <p id="comment-date"  th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
+                                    <table class="comment-teaser">
+                                        <tr class="comment-tr">
+                                            <td class="author">Anonymous: </td>
+                                            <td class="comment">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus ipsum eget risus dignissim mollis. Quisque tincidunt lectus eu dolor ullamcorper, eu blandit nulla condimentum. Phasellus ut dui consectetur, sodales urna vel, pharetra enim. </td>
+                                        </tr>
+                                    </table>
+                                </div>-->
 
                 <div th:replace="fragments/footer :: footer">
                     FOOTER HERE

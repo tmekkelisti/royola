@@ -3,6 +3,9 @@ body {
     color:#fff;
     text-align:center;
     font-family: 'Open Sans',Helvetica, Arial, sans-serif;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
 }
 h1, h2 ,h3 ,h4, h5, h6 {
     font-family:'Open Sans', Helvetica, Arial, sans-serif;
@@ -14,6 +17,17 @@ h1{
 }
 h1.logo,h2.logo,h3.logo,h4.logo,h5.logo,h6.logo {
     font-family:Pacifico, Helvetica, Arial, sans-serif;
+}
+
+.comments-title {
+
+    margin: 0 0 20px 0;
+
+}
+
+.add-comment-title {
+
+    margin: 20px 0 20px 0;
 }
 
 .single-story-title {
@@ -34,12 +48,10 @@ h1.logo,h2.logo,h3.logo,h4.logo,h5.logo,h6.logo {
 
 }
 
-.share-story-title:hover {
-    
+.share-story-title:hover { 
     color: #dcdcdc;
     transform: scale(1);
-    
-    
+
 }
 
 a.logo {
