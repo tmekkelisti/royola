@@ -25,8 +25,13 @@
                     <div th:replace="fragments/navbar :: navbar">
                     </div>
                 </div>
+                
+                <div class="header">
+                    <h1 class="logo" ></h1>
+                </div>
+                
                 <div class="teaser">    
-
+                    
                     <div sec:authorize="isAuthenticated()">
                         <div id="delete" class="pull-right">                          
                             <form th:action="@{/stories/delete/} + ${story.storyId}" method="post">
@@ -48,13 +53,7 @@
                     <div class="story-content" id="story" th:utext="${story.content}"></div>
                     <br/>
                     <div class="pull-left">
-
                         <a id="author" th:href="@{/users/} + ${personId}" th:text="${story.author}">Anonymous</a>
-
-                        <!--                        <form th:action="@{/users/} + ${personId}" method="get">
-                                                    <button type="submit" class="btn button-royoid btn-xs" th:text="${story.author}">Anonymous</button>
-                                                </form>-->
-                        <!--                        <p id="author" th:text="${story.author}">Anonymous</p>-->
                     </div>
                     <br></br>
 

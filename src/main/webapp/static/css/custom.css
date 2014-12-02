@@ -17,6 +17,7 @@ h1{
 }
 h1.logo,h2.logo,h3.logo,h4.logo,h5.logo,h6.logo {
     font-family:Pacifico, Helvetica, Arial, sans-serif;
+    padding: 40px;
 }
 
 .comments-title {
@@ -254,11 +255,12 @@ tr.comment-tr {
     background-color: rgba(0, 0, 0, 0.33);
 }
 .navbar-default .navbar-toggle {
-    border-color: black;
-    background-color: rgba(0, 0, 0, 0.33);
+    border: 0px solid #ffffff;
+    border-color: lightgray;
+    background-color: whitesmoke;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-    background-color: rgba(0, 0, 0, 0.33);
+    background-color: lightgray;
 }
 .navbar-default .navbar-toggle .icon-bar {
     background-color: rgba(0, 0, 0, 0.33);
@@ -278,11 +280,10 @@ tr.comment-tr {
 
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-
         background-color: rgba(0, 0, 0, 0.33);
     }
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-
+        
         background-color: rgba(0, 0, 0, 0.33);
     }
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
@@ -300,7 +301,7 @@ tr.comment-tr {
     text-align: right;
 }
 
-.dropdown-menu.pull-right {
+.dropdown-menu.pull-right {   
     right: 0;
     left: auto;
 }
@@ -346,6 +347,8 @@ tr.comment-tr {
     background-image: none;
     filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 }
+
+/* buttons */
 
 .button-royola {
     border: 0px solid #ffffff;
@@ -393,42 +396,49 @@ tr.comment-tr {
 
 .button-royodele {
     border: 0px solid #ffffff;
-    background: rgba(0, 0, 0, 0.33);
+    background: rgba(0, 10, 10, 0.38);
     /*   background: -webkit-gradient(linear, left top, left bottom, from(#ff5757), to(#ff4c4c));
        background: -webkit-linear-gradient(top, #ff5757, #ff4c4c);
        background: -moz-linear-gradient(top, #ff5757, #ff4c4c);
        background: -ms-linear-gradient(top, #ff5757, #ff4c4c);
        background: -o-linear-gradient(top, #ff5757, #ff4c4c);
        background-image: -ms-linear-gradient(top, #ff5757 0%, #ff4c4c 100%);*/
-    padding: 1px 6px;
-    border-radius: 3px;
-    text-shadow: #000000 0 1px 0;
-    color: #ffffff;
-    font-size: 12px;
-    font-family: helvetica, serif;
-    text-decoration: none;
-    vertical-align: text-top;
-    margin: -25px 0px;
-}
-
-.button-royoid {
-    border: 0px solid #ffffff;
-    background: rgba(0, 0, 0, 0.33);
-    /*   background: -webkit-gradient(linear, left top, left bottom, from(#ff5757), to(#ff4c4c));
-       background: -webkit-linear-gradient(top, #ff5757, #ff4c4c);
-       background: -moz-linear-gradient(top, #ff5757, #ff4c4c);
-       background: -ms-linear-gradient(top, #ff5757, #ff4c4c);
-       background: -o-linear-gradient(top, #ff5757, #ff4c4c);
-       background-image: -ms-linear-gradient(top, #ff5757 0%, #ff4c4c 100%);*/
-    padding: 1px 6px;
     border-radius: 3px;
     text-shadow: #000000 0 1px 0;
     color: #ffffff;
     font-size: 13px;
-    font-family: helvetica, serif;
     text-decoration: none;
     vertical-align: text-top;
-    margin: -25px 0px;
+    margin: -25px -5px;
+}
+
+.button-royoid {
+    border: 0px solid #ffffff;
+    background: rgba(0, 10, 10, 0.38);
+    /*   background: -webkit-gradient(linear, left top, left bottom, from(#ff5757), to(#ff4c4c));
+       background: -webkit-linear-gradient(top, #ff5757, #ff4c4c);
+       background: -moz-linear-gradient(top, #ff5757, #ff4c4c);
+       background: -ms-linear-gradient(top, #ff5757, #ff4c4c);
+       background: -o-linear-gradient(top, #ff5757, #ff4c4c);
+       background-image: -ms-linear-gradient(top, #ff5757 0%, #ff4c4c 100%);*/
+    padding: 1px 6px;
+    border-radius: 3px;
+    text-shadow: #000000 0 1px 0;
+    color: #ffffff;
+    font-size: 14px;
+
+    text-decoration: none;
+    vertical-align: text-top;
+    margin: -25px -5px;
+    font-weight: bold;
+}
+
+.button-royoid:hover {
+    color: #B6D9BB;
+}
+
+.button-royoid:active {
+    color: #4c9982;
 }
 
 .button-royonav {
@@ -452,7 +462,7 @@ tr.comment-tr {
 }
 
 .btn-group {
-    margin: 9px -5px;
+    margin: 9px 5px;
 }
 
 #Slider {
