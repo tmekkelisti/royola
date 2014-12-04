@@ -47,5 +47,17 @@ public class CommentTest {
         comment.setBody(commentBody);
         assertEquals(commentBody, comment.getBody());
     }
+    
+    @Test
+    public void setDateWorks(){
+        assertNotNull(comment.getCommentDate());
+    }
+    
+    @Test
+    public void setIdWorks(){
+        final Long id = Long.parseLong("123");
+        comment.setCommentID(id);
+        assertEquals(id, comment.getCommentID());
+    }
 
 }

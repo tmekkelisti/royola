@@ -4,10 +4,13 @@
  */
 package wad.domain;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import javax.annotation.PostConstruct;
 import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -69,5 +72,15 @@ public class StoryTest {
         testStory.setStoryDate(date);
         
         Assert.assertEquals(calendar.getTime(), testStory.getStoryDate());
+    }
+    
+    @Test
+    public void settingCommentsWorks(){
+        Comment comment = new Comment();
+        List<Comment> comments = new ArrayList<>();
+        comments.add(comment);
+        testStory.setComments(comments);
+        
+        assertEquals(comments, testStory.getComments());
     }
 }
