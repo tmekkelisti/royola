@@ -6,7 +6,6 @@
 
 package wad.repository;
 
-import javax.transaction.Transactional;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
@@ -14,10 +13,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 import wad.Application;
-import wad.domain.Comment;
-
+import wad.domain.Person;
 
 /**
  *
@@ -25,30 +22,36 @@ import wad.domain.Comment;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
-@Transactional
-public class CommentRepositoryTest {
+public class PersonRepositoryTest {
     
     @Autowired
-    CommentRepository commentRepo;
+    PersonRepository personRepo;
     
     @Test
-    public void insertTest(){
+    public void savePerson(){
         
-        final String author = "testi tyyppi";
-        final String commentContent = "tämä on kommentti";
+        final String username = "username";
+        final String password = "password";
         
-        Comment comment = new Comment();
-        comment.setAuthor(author);
-        comment.setBody(commentContent);
+        Person person = new Person();
+        person.setUsername(username);
+        person.setPassword(password);
         
-        commentRepo.save(comment);
+        personRepo.save(person);
         
-        Comment dbComment = commentRepo.findOne(comment.getCommentID());
-        assertNotNull(dbComment);
-        assertEquals(author, dbComment.getAuthor());
-        assertEquals(commentContent, dbComment.getBody());
+        Person dbPerson = personRepo.findOne(person.getId());
+        assertNotNull(dbPerson);
+        assertEquals(username, dbPerson.getUsername());
         
     }
-   
-   
+    
+    @Test
+    public void findByUsername(){
+        
+        Person dbPerson = personRepo.findByUsername("username");
+        assertNotNull(dbPerson);
+        assertEquals("username", dbPerson.getUsername());
+        
+    }
+    
 }

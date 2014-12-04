@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!-- Custom Theme CSS -->
+        <link href="../../static/css/bootstrap.css" th:href="@{/static/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+        <script src="../../static/js/bootstrap.min.js" th:src="@{/static/js/bootstrap.min.js}"></script>
+        <script src="../../static/js/jquery.min.js" th:src="@{/static/js/jquery.min.js}"></script>
+        <link href="../../static/css/style.css" th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="../../static/fonts/css/font-awesome.min.css" th:href="@{/static/fonts/css/font-awesome.min.css}" />
+
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <div th:fragment="story">
+            <div th:each="story : ${stories}">
+
+
+                <div class="teaser">    
+                    
+                        <div id="storyId" class="pull-left">
+                            <form th:action="@{/stories/} + ${story.storyId}" method="get">
+                                <button type="submit" class="btn button-royoid btn-xs" th:text="${story.title}">randomId</button>
+                            </form>
+                        </div>
+                    <div sec:authorize="isAuthenticated()">
+                        <div id="delete" class="pull-right">                          
+                            <form th:action="@{/stories/delete/} + ${story.storyId}" method="post">
+                                <button type="submit" class="btn button-royodele btn-xs">
+                                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <br></br>    
+                    <p id="author" class="pull-left" th:text="${story.author}">Anonymous</p>
+                    <p id="date" class="pull-right" th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
+                    <br></br>
+                    <br></br>
+                    <div class="story-content" id="story" th:utext="${story.content}"></div>
+                    <br></br>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head lang="fi">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <title>Work in progress (royola)</title>
+        <link href="../../static/css/bootstrap.css" th:href="@{/static/css/bootstrap.css}" rel="stylesheet" type="text/css" />
+        <script src="../../static/js/bootstrap.min.js" th:src="@{/static/js/bootstrap.min.js}"></script>
+        <script src="../../static/js/jquery.min.js" th:src="@{/static/js/jquery.min.js}"></script>
+        <link href="../../static/css/style.css" th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="../../static/fonts/css/font-awesome.min.css" th:href="@{/static/fonts/css/font-awesome.min.css}" />
+        <!-- Google Font -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700|Pacifico' rel='stylesheet' type='text/css'/>
+        <!-- Custom Theme CSS -->
+        <link href="../../static/css/custom.css" th:href="@{/static/css/custom.css}" rel="stylesheet" type="text/css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+
+    <body background="../../static/img/bg.jpg" bgproperties="fixed">
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <div>
+                    <div th:replace="fragments/navbar :: navbar"></div>
+                </div>
+
+                <div class="teaser">
+                    <h3 id="comments" class="comments-title">Käyttäjän kommentit</h3>
+                    <div th:each="comment : ${comments}">
+
+                        <div class="comment-teaser">
+                            <p id="author" class="pull-left" th:text="${comment.author}">kommentaattorin nimi</p>
+                            <p id="date" class="pull-right" th:text="${#calendars.format(comment.commentDate,'dd/MM/yyyy HH:mm')}"></p>
+                            <br/><br/>
+                            <p class="story-content" id="story" th:utext="${comment.body}">tähän kommenttia</p>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div th:replace="fragments/footer :: footer">
+                    FOOTER HERE
+                </div>
+            </div>
+        </div>
+        <!-- Core JavaScript Files -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js" th:src="@{/static/js/bootstrap.min.js}"></script>
+    </body>
+</html>
