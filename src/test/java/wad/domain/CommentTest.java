@@ -1,6 +1,7 @@
 
 package wad.domain;
 
+import java.util.Date;
 import javax.annotation.PostConstruct;
 import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
@@ -50,7 +51,10 @@ public class CommentTest {
     
     @Test
     public void setDateWorks(){
+        final Date date = new Date();
+        comment.setCommentDate(date);
         assertNotNull(comment.getCommentDate());
+        assertEquals(date, comment.getCommentDate());
     }
     
     @Test
