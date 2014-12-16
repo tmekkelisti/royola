@@ -19,7 +19,7 @@ public class Comment {
     @Id
     @Column(name = "COMMENT_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long commentID;
+    private Long commentId;
 
     private String author;
 
@@ -48,11 +48,11 @@ public class Comment {
     }
 
     public Long getCommentID() {
-        return commentID;
+        return commentId;
     }
 
     public void setCommentID(Long commentID) {
-        this.commentID = commentID;
+        this.commentId = commentID;
     }
 
     public String getAuthor() {
