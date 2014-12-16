@@ -1,7 +1,6 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head lang="fi">
-        <meta charset="UTF-8" />
 
         <title>Work in progress (royola)</title>
         <link href="../../static/css/bootstrap.css" th:href="@{/static/css/bootstrap.css}" rel="stylesheet" type="text/css" />
@@ -14,6 +13,8 @@
         <!-- Custom Theme CSS -->
         <link href="../../static/css/custom.css" th:href="@{/static/css/custom.css}" rel="stylesheet" type="text/css" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        <meta charset="utf-8"/>
     </head>
 
     <body background="../../static/img/bg.jpg" bgproperties="fixed">
@@ -121,7 +122,7 @@
 
                         <h3 class="add-comment-title">Lisää kommentti</h3>
 
-                        <form method="POST" th:action="@{/stories/} + ${story.storyId}">                    
+                        <form method="POST" th:action="@{/stories/} + ${story.storyId}" accept-charset="utf-8">                    
 
                             <textarea class="form-control" rows="5" name="body" placeholder="Kirjoita kommenttisi tähän." ></textarea>
                             <br></br>
