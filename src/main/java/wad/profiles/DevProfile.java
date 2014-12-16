@@ -47,24 +47,6 @@ public class DevProfile {
         postman.setUsername("postman");
         postman.setPassword("asd");
         personRepo.save(postman);
-        
-        Story story = new Story();
-        story.setContent("tämä on testistory jejeje");
-        story.setStoryDate(new Date());
-        story.setTitle("testistoryn otsikko");
-        storyRepo.save(story);
-        
-        Comment comment = new Comment();
-        comment.setAuthor("kommentaattori");
-        comment.setBody("tämä on kommenttini");
-        comment.setStory(story);
-        commentRepo.save(comment);
-        
-        story.getComments().add(comment);
-        storyRepo.save(story);
-        
-        
-        
     }
     
 }

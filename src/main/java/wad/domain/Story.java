@@ -51,14 +51,22 @@ public class Story {
     
     private String location;
     
+
     private Integer voteCount;
+
+    private int amountOfComments;
+
     
     @OneToMany(mappedBy = "story", cascade = CascadeType.ALL)
     private List<Comment> comments = new ArrayList<>();
     
     public Story() {
         this.storyDate = new Date();
+
         this.voteCount = 0;
+
+        this.amountOfComments = 0;
+
     }
     
     public Date getStoryDate() {
@@ -117,6 +125,15 @@ public class Story {
         this.storyId = storyId;
     }
 
+
+    public int getAmountOfComments() {
+        return amountOfComments;
+    }
+
+    public void setAmountOfComments(int amountOfComments) {
+        this.amountOfComments = amountOfComments;
+    }
+    
     public Integer getVoteCount() {
         return voteCount;
     }

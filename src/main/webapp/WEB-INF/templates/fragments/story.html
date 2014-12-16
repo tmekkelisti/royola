@@ -12,6 +12,8 @@ and open the template in the editor.
         <script src="../../static/js/jquery.min.js" th:src="@{/static/js/jquery.min.js}"></script>
         <link href="../../static/css/style.css" th:href="@{/static/css/style.css}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="../../static/fonts/css/font-awesome.min.css" th:href="@{/static/fonts/css/font-awesome.min.css}" />
+        <link href="../../static/css/custom.css" th:href="@{/static/css/custom.css}" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="../../../static/css/custom.css" type="text/css" />
 
         <title>TODO supply a title</title>
         <meta charset="UTF-8" />
@@ -23,28 +25,38 @@ and open the template in the editor.
 
 
                 <div class="teaser">    
-                    
-                        <div id="storyId" class="pull-left">
-                            <form th:action="@{/stories/} + ${story.storyId}" method="get">
-                                <button type="submit" class="btn button-royoid btn-xs" th:text="${story.title}">randomId</button>
-                            </form>
-                        </div>
+
+                    <div id="storyId" class="pull-left">
+                        <form th:action="@{/stories/} + ${story.storyId}" method="get">
+                            <button type="submit" class="btn button-royoid btn-xs" th:text="'Kommentit (' + ${story.amountOfComments} + ')'">randomId</button>
+                        </form>
+                    </div>
                     <div sec:authorize="isAuthenticated()">
                         <div id="delete" class="pull-right">                          
                             <form th:action="@{/stories/delete/} + ${story.storyId}" method="post">
                                 <button type="submit" class="btn button-royodele btn-xs">
-                                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  
                                 </button>
                             </form>
                         </div>
                     </div>
-                    <br></br>    
-                    <p id="author" class="pull-left" th:text="${story.author}">Anonymous</p>
-                    <p id="date" class="pull-right" th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
-                    <br></br>
-                    <br></br>
+                    <br />
+                    <div class="pull-left">
+                        <h3 class="single-story-title" id="title" th:text="${story.title}">Title</h3>    
+                    </div>
+
+                    <div class="pull-right">
+                        <p id="location" th:text="${story.location}">location</p>
+                        <p id="date" th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
+                    </div>
+                    <br /><br /><br /><br />
                     <div class="story-content" id="story" th:utext="${story.content}"></div>
-                    <br></br>
+                    <br/>
+                    <div class="pull-left">
+                        <a id="author" th:href="@{/users/} + ${personId}" th:text="${story.author}">Anonymous</a>
+                    </div>
+                    <br />
+
                 </div>
             </div>
         </div>

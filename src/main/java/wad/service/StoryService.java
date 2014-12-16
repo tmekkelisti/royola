@@ -59,6 +59,7 @@ public class StoryService {
         comment.setStory(storyRepository.findOne(storyId));
         commentRepo.save(comment);
         storyRepository.findOne(storyId).getComments().add(comment);
+        storyRepository.findOne(storyId).setAmountOfComments(storyRepository.findOne(storyId).getAmountOfComments() + 1);
     }
 
     public List<Comment> commentsListByAuthor(String author) {
