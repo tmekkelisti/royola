@@ -63,7 +63,6 @@ public class StoryController {
         model.addAttribute("personId", personId);
         if (!storyService.getStory(id).getComments().isEmpty()) {
             model.addAttribute("comments", storyService.getStory(id).getComments());
-
         }
 
         return "singleStory";

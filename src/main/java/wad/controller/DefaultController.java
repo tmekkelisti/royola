@@ -35,7 +35,6 @@ public class DefaultController {
     
     @RequestMapping(method = RequestMethod.GET)
     public String view(Model model) {
-        List<Story> asd = new ArrayList<>();
         if (!storyService.list().isEmpty()) {
             model.addAttribute("stories", storyService.list());
         }
