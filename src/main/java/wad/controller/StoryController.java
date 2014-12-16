@@ -58,6 +58,7 @@ public class StoryController {
         return "redirect:/index";
     }
 
+    @Transactional
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String singleStory(@PathVariable Long id, Model model) {
         Story story = storyService.getStory(id);
@@ -100,6 +101,7 @@ public class StoryController {
         return "redirect:/stories/{id}";
     }
 
+    @Transactional
     public String safeContent(String content) {
 
         String replaceAll = content.replaceAll("(\r\n|\n\r|\r|\n)", "<br />\n");
