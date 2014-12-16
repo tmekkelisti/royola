@@ -48,5 +48,4 @@ public class Person extends AbstractPersistable<Long> {
     }
     
     
-    
 }

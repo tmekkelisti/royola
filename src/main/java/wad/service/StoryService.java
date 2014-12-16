@@ -67,4 +67,16 @@ public class StoryService {
         return comments;
     }
     
+    public int amountOfComments(String author){
+        return commentRepo.findByAuthor(author).size();
+    }
+    
+    public List<Story> storiesListByAuthor(String author){
+        return storyRepository.findByAuthor(author);
+    }
+    
+    public int amountOfStories(String author){
+        return storyRepository.findByAuthor(author).size();
+    }
+    
 }

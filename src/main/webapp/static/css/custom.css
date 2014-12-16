@@ -23,6 +23,7 @@ h1.logo,h2.logo,h3.logo,h4.logo,h5.logo,h6.logo {
 .comments-title {
 
     margin: 0 0 20px 0;
+    display: inline-block;
 
 }
 
@@ -195,6 +196,20 @@ tr.comment-tr {
 @media only screen and (max-width: 640px)  {
     .comment-teaser {width: 320px;}
 }
+
+.story-teaser {
+    background: rgba(0, 0, 0, 0.33);
+    width: 666px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em 1em 2em 1em;
+    border-radius: 3px;
+    margin: 5px 3px;
+}
+@media only screen and (max-width: 640px)  {
+    .comment-teaser {width: 320px;}
+}
+
 
 .story-content{
     color: white;

@@ -49,9 +49,20 @@ public class UserController {
     
     @RequestMapping(value="/{id}", method = RequestMethod.GET)
     public String view(@PathVariable Long id, Model model) {
-        
+        model.addAttribute("person", userRepo.findOne(id));
         model.addAttribute("comments", storyService.commentsListByAuthor(userRepo.findOne(id).getUsername()));
+        model.addAttribute("amountOfComments", storyService.amountOfComments(userRepo.findOne(id).getUsername()));
+        model.addAttribute("stories", storyService.storiesListByAuthor(userRepo.findOne(id).getUsername()));
+        model.addAttribute("amountOfStories", storyService.amountOfStories(userRepo.findOne(id).getUsername()));
         return "user";   
+    }
+    
+    @RequestMapping(value="/current", method = RequestMethod.POST)
+    public String currentUser(){
+        Long id = personService.getAuthenticatedPerson().getId();
+        String url = "redirect:/users/" + id;
+        System.out.println(url);
+        return url;
     }
 
 }

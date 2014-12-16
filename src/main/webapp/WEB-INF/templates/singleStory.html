@@ -74,7 +74,7 @@
                     <div th:each="comment : ${comments}">
 
                         <div class="comment-teaser">
-                            <a class="pull-left" id="author" th:href="@{/users/} + ${personId}" th:text="${story.author}">Anonymous</a>
+                            <a class="pull-left" id="author" th:href="@{/users/} + ${personId}" th:text="${comment.author}">Anonymous</a>
                             <p id="date" class="pull-right" th:text="${#calendars.format(comment.commentDate,'dd/MM/yyyy HH:mm')}"></p>
                             <br/><br/>
                             <p class="story-content" id="story" th:utext="${comment.body}">tähän kommenttia</p>

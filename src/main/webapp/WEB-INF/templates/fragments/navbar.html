@@ -37,14 +37,21 @@
 
                             <div class="btn-group" role="group" aria-label="...">
                                 <div sec:authorize="isAuthenticated()">
-                                    <button type="button" class="btn button-royonav" aria-label="Left Align">
+                                    <button onclick="document.getElementById('ownPage').submit();" type="button" class="btn button-royonav" aria-label="Left Align">
                                         <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
                                     </button>
+
+
+
                                     <button onclick="document.getElementById('logout-form').submit();" type="button" class="btn button-royonav" aria-label="Left Align">
                                         <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
                                     </button>
+
                                     <form style="visibility: hidden" id="logout-form" method="post" action="#" th:action="@{/logout}">
                                         <input type="submit" value="Logout" />
+                                    </form>
+                                    <form style="visibility: hidden" id="ownPage" method="post" action="#" th:action="@{/users/current}">
+                                        <input type="submit" value="ownPage" />
                                     </form>
                                 </div>
                                 <div sec:authorize="not isAuthenticated()">

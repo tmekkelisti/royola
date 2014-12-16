@@ -13,5 +13,5 @@ import wad.domain.Story;
  * @author royola
  */
 public interface StoryRepository extends JpaRepository<Story, Long> {
-    
+    List<Story> findByAuthor(String author);
 }
