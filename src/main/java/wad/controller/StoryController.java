@@ -73,6 +73,7 @@ public class StoryController {
         return "singleStory";
     }
 
+    @Transactional
     @RequestMapping(value = "/{id}", method = RequestMethod.POST)
     public String addComment(@PathVariable Long id, @Valid @ModelAttribute Comment comment, BindingResult br) {
 

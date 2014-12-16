@@ -8,6 +8,7 @@ package wad.controller;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -47,6 +48,7 @@ public class UserController {
         return "redirect:/login";
     }
     
+    @Transactional
     @RequestMapping(value="/{id}", method = RequestMethod.GET)
     public String view(@PathVariable Long id, Model model) {
         model.addAttribute("person", userRepo.findOne(id));
@@ -57,6 +59,7 @@ public class UserController {
         return "user";   
     }
     
+    @Transactional
     @RequestMapping(value="/current", method = RequestMethod.POST)
     public String currentUser(){
         Long id = personService.getAuthenticatedPerson().getId();
