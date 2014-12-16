@@ -122,7 +122,7 @@
 
                         <h3 class="add-comment-title">Lisää kommentti</h3>
 
-                        <form method="POST" enctype="multipart/form-data" accept-charset="utf-8" th:action="@{/stories/} + ${story.storyId}" >                    
+                        <form method="POST" accept-charset="utf-8" th:action="@{/stories/} + ${story.storyId}" >                    
 
                             <textarea class="form-control" rows="5" name="body" placeholder="Kirjoita kommenttisi tähän." ></textarea>
                             <br></br>
