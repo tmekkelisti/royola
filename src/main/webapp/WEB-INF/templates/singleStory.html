@@ -25,21 +25,40 @@
                     <div th:replace="fragments/navbar :: navbar">
                     </div>
                 </div>
-                
+
                 <div class="header">
                     <h1 class="logo" ></h1>
                 </div>
-                
+
                 <div class="teaser">    
-                    
+
                     <div sec:authorize="isAuthenticated()">
-                        <div id="delete" class="pull-right">                          
-                            <form th:action="@{/stories/delete/} + ${story.storyId}" method="post">
-                                <button type="submit" class="btn button-royodele btn-xs">
-                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  
+                        <!--                        <div id="delete" class="pull-right">                          
+                                                    <form th:action="@{/stories/delete/} + ${story.storyId}" method="post">
+                                                        <button type="submit" class="btn button-royodele btn-xs">
+                                                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  
+                                                        </button>
+                                                    </form>
+                                                </div>-->
+                                
+                        <div class="pull-right btn-group">
+                            <form method="POST" th:action="@{/stories/} + ${story.storyId} + @{/vote}">
+
+                                <input type="hidden" name="vote" value="1"/>
+                                <button type="submit" class="btn button-royovote" value="+">
+                                    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                </button>
+
+                            </form>
+                            <form method="POST" th:action="@{/stories/} + ${story.storyId} + @{/vote}">
+
+                                <input type="hidden" name="vote" value="-1"/>
+                                <button type="submit" class="btn button-royovote" value="-">
+                                    <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
                                 </button>
                             </form>
                         </div>
+
                     </div>
                     <br></br>
                     <div class="pull-left">
@@ -48,7 +67,23 @@
                     <div class="pull-right">
                         <p id="location" th:text="${story.location}">location</p>
                         <p id="date" th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
+<!--                        <form method="POST" th:action="@{/stories/} + ${story.storyId} + @{/vote}">
+
+                            <input type="hidden" name="vote" value="1"/>
+                            <input type="submit" class="btn button-royola btn-block" value="+"/>
+
+                        </form>
+                        <form method="POST" th:action="@{/stories/} + ${story.storyId} + @{/vote}">
+
+                            <input type="hidden" name="vote" value="-1"/>
+                            <input type="submit" class="btn button-royola btn-block" value="-"/>
+
+                        </form>-->
+
+                        <p th:text="'Arvio: '+${story.voteCount}">voteCount</p>
+
                     </div>
+
                     <br /><br /><br /><br />
                     <div class="story-content" id="story" th:utext="${story.content}"></div>
                     <br/>

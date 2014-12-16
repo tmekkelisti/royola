@@ -51,11 +51,14 @@ public class Story {
     
     private String location;
     
+    private Integer voteCount;
+    
     @OneToMany(mappedBy = "story", cascade = CascadeType.ALL)
     private List<Comment> comments = new ArrayList<>();
     
     public Story() {
         this.storyDate = new Date();
+        this.voteCount = 0;
     }
     
     public Date getStoryDate() {
@@ -113,10 +116,15 @@ public class Story {
     public void setStoryId(Long storyId) {
         this.storyId = storyId;
     }
-    
-    
 
-    
-    
+    public Integer getVoteCount() {
+        return voteCount;
+    }
+
+    public void setVoteCount(Integer voteCount) {
+       
+        this.voteCount = voteCount;
+    }
+
 }
 

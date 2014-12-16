@@ -298,7 +298,7 @@ tr.comment-tr {
         background-color: rgba(0, 0, 0, 0.33);
     }
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
-        
+
         background-color: rgba(0, 0, 0, 0.33);
     }
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
@@ -426,6 +426,33 @@ tr.comment-tr {
 
 .button-royodele:active {
     color: #4c9982;
+}
+
+.button-royovote {
+    border: 0px solid #ffffff;
+    background: rgba(0, 10, 10, 0.38);
+    padding: 1px 6px;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+    vertical-align: text-top;
+    margin: -25px -5px;
+    font-weight: bold;
+}
+
+.button-royovote:hover {
+    color: #B6D9BB;
+}
+
+.button-royovote:active {
+    color: #4c9982;
+}
+
+.button-grouproyo {
+    
+    display: inline-block;
+    text-align: center;
 }
 
 .button-royoid {

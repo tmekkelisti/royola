@@ -9,13 +9,16 @@ import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import wad.domain.Comment;
+import wad.domain.Person;
 import wad.domain.Story;
 import wad.repository.PersonRepository;
 import wad.service.StoryService;
@@ -59,6 +62,8 @@ public class StoryController {
     public String singleStory(@PathVariable Long id, Model model) {
         Story story = storyService.getStory(id);
         Long personId = personRepo.findByUsername(story.getAuthor()).getId();
+        Integer voteCount = story.getVoteCount();
+        model.addAttribute("voteCount", voteCount);
         model.addAttribute("story", story);
         model.addAttribute("personId", personId);
         if (!storyService.getStory(id).getComments().isEmpty()) {
@@ -81,6 +86,18 @@ public class StoryController {
         storyService.addCommentToStory(comment, id);
 
         return "redirect:/stories/{id}#comments";
+    }
+
+    @Transactional
+    @RequestMapping(value = "/{id}/vote", method = RequestMethod.POST)
+    public String vote(@PathVariable Long id, @RequestParam Integer vote) {
+
+        Story story = storyService.getStory(id);
+        Integer voteCount = story.getVoteCount();
+        voteCount += vote;
+        story.setVoteCount(voteCount);
+
+        return "redirect:/stories/{id}";
     }
 
     public String safeContent(String content) {
