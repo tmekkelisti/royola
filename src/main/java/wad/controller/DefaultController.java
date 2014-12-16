@@ -39,6 +39,7 @@ public class DefaultController {
             model.addAttribute("stories", storyService.list());
         }
         model.addAttribute("user", currentUser());
+        model.addAttribute("frontpage", "Uusimmat");
         return "index";
     }
     
@@ -48,6 +49,7 @@ public class DefaultController {
             model.addAttribute("stories", storyService.listBest());
         }
         model.addAttribute("user", currentUser());
+        model.addAttribute("frontpage", "Parhaimmat");
         return "index";
     }
 
