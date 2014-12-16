@@ -1,7 +1,7 @@
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
     <head lang="fi">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="UTF-8" />
 
         <title>Work in progress (royola)</title>
         <link href="../../static/css/bootstrap.css" th:href="@{/static/css/bootstrap.css}" rel="stylesheet" type="text/css" />
@@ -121,38 +121,14 @@
 
                         <h3 class="add-comment-title">Lisää kommentti</h3>
 
-                        <form method="POST" th:action="@{/stories/} + ${story.storyId}" accept-charset="UTF-8">                    
+                        <form method="POST" th:action="@{/stories/} + ${story.storyId}">                    
 
-                            <textarea class="form-control" rows="5" name="body" placeholder="Kirjoita kommenttisi tähän." 
-                                      onkeypress="CheckLength()"></textarea>
+                            <textarea class="form-control" rows="5" name="body" placeholder="Kirjoita kommenttisi tähän." ></textarea>
                             <br></br>
                             <div><button type="submit" class="btn button-royola btn-block" value="Send" >Julkaise kommentti</button></div>
                         </form>
-
-
                     </div>
-
                 </div>
-
-
-
-                <!--                <div class="teaser"> 
-                                    <p id="comment-date"  th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
-                                    <table class="comment-teaser">
-                                        <tr>
-                                            <td class="author">Anonymous: </td>
-                                            <td class="comment">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus ipsum eget risus dignissim mollis. Quisque tincidunt lectus eu dolor ullamcorper, eu blandit nulla condimentum. Phasellus ut dui consectetur, sodales urna vel, pharetra enim. Etiam volutpat auctor molestie. Quisque iaculis nibh vel sem posuere, a finibus elit suscipit.  </td>
-                                        </tr>
-                                    </table>
-                                    <p id="comment-date"  th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
-                                    <table class="comment-teaser">
-                                        <tr class="comment-tr">
-                                            <td class="author">Anonymous: </td>
-                                            <td class="comment">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus ipsum eget risus dignissim mollis. Quisque tincidunt lectus eu dolor ullamcorper, eu blandit nulla condimentum. Phasellus ut dui consectetur, sodales urna vel, pharetra enim. </td>
-                                        </tr>
-                                    </table>
-                                </div>-->
-
                 <div th:replace="fragments/footer :: footer">
                     FOOTER HERE
                 </div>

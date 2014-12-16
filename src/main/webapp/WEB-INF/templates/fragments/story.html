@@ -45,7 +45,7 @@ and open the template in the editor.
                     </div>
                     <br />
                     <div class="pull-left">
-                        <h3 class="single-story-title" id="title" th:text="${story.title}">Title</h3>    
+                        <h3 class="single-story-title" id="title" th:utext="${story.title}">Title</h3>    
                     </div>
 
                     <div class="pull-right">
@@ -56,7 +56,7 @@ and open the template in the editor.
                     <div class="story-content" id="story" th:utext="${story.content}"></div>
                     <br/>
                     <div class="pull-left">
-                        <p id="author" th:href="@{/users/} + ${personId}" th:text="${story.author}">Anonymous</p>
+                        <p id="author" th:href="@{/users/} + ${personId}" th:utext="${story.author}">Anonymous</p>
                     </div>
                     <br />
 
