@@ -4,8 +4,8 @@
  */
 package wad.service;
 
+import org.springframework.data.domain.Sort;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +36,18 @@ public class StoryService {
         Collections.reverse(stories);
         return stories;
     }
+    
+    
+    public List<Story> listBest() {
+        
+        List<Story> bestStories = storyRepository.findAll(sortByVoteCount());
+        return bestStories;
+    }
+    
+    private Sort sortByVoteCount(){
+        return new Sort(Sort.Direction.DESC, "voteCount");
+    }
+    
 
     @Transactional
     public void addStory(Story story) {

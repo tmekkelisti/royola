@@ -41,6 +41,15 @@ public class DefaultController {
         model.addAttribute("user", currentUser());
         return "index";
     }
+    
+    @RequestMapping(value = "/best", method = RequestMethod.GET)
+    public String viewTheBest(Model model){
+        if (!storyService.list().isEmpty()) {
+            model.addAttribute("stories", storyService.listBest());
+        }
+        model.addAttribute("user", currentUser());
+        return "index";
+    }
 
     public String currentUser() {
         String user = "Not logged";
