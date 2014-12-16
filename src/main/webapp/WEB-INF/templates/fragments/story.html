@@ -40,13 +40,6 @@ and open the template in the editor.
                             </form>
                         </div>
                     </div>
-                    <!--                    <br></br>    
-                                        <p id="author" class="pull-left" th:text="${story.author}">Anonymous</p>
-                                        <p id="date" class="pull-right" th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
-                                        <br></br>
-                                        <br></br>
-                                        <div class="story-content" id="story" th:utext="${story.content}"></div>
-                                        <br></br>-->
                     <br />
                     <div class="pull-left">
                         <h3 class="single-story-title" id="title" th:text="${story.title}">Title</h3>    
@@ -62,7 +55,7 @@ and open the template in the editor.
                     <div class="pull-left">
                         <a id="author" th:href="@{/users/} + ${personId}" th:text="${story.author}">Anonymous</a>
                     </div>
-<br />
+                    <br />
 
                 </div>
             </div>
