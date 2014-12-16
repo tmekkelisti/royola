@@ -56,7 +56,7 @@ and open the template in the editor.
                     <div class="story-content" id="story" th:utext="${story.content}"></div>
                     <br/>
                     <div class="pull-left">
-                        <a id="author" th:href="@{/users/} + ${personId}" th:text="${story.author}">Anonymous</a>
+                        <p id="author" th:href="@{/users/} + ${personId}" th:text="${story.author}">Anonymous</p>
                     </div>
                     <br />
 
