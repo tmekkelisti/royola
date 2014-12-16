@@ -14,7 +14,7 @@
         <link href="../../static/css/custom.css" th:href="@{/static/css/custom.css}" rel="stylesheet" type="text/css" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
-        <meta charset="utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
 
     <body background="../../static/img/bg.jpg" bgproperties="fixed">
@@ -122,7 +122,7 @@
 
                         <h3 class="add-comment-title">Lisää kommentti</h3>
 
-                        <form method="POST" th:action="@{/stories/} + ${story.storyId}" accept-charset="utf-8">                    
+                        <form method="POST" enctype="multipart/form-data" accept-charset="utf-8" th:action="@{/stories/} + ${story.storyId}" >                    
 
                             <textarea class="form-control" rows="5" name="body" placeholder="Kirjoita kommenttisi tähän." ></textarea>
                             <br></br>
