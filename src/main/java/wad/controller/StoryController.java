@@ -4,6 +4,7 @@
  */
 package wad.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
@@ -82,12 +83,20 @@ public class StoryController {
 
     @Transactional
     @RequestMapping(value = "/{id}/vote", method = RequestMethod.POST)
-    public String vote(@PathVariable Long id, @RequestParam Integer vote) {
+    public String vote(@PathVariable Long id, @RequestParam Integer vote, final HttpServletRequest request) {
         Story story = storyService.getStory(id);
         Integer voteCount = story.getVoteCount();
         voteCount += vote;
         story.setVoteCount(voteCount);
-        return "redirect:/stories/{id}";
+        
+        String referrer = request.getHeader("referer");
+        
+        System.out.println(referrer);
+       
+        String redirecti = "redirect:"+referrer;
+        
+        
+        return redirecti;
     }
 
     public String safeContent(String content) {

@@ -13,7 +13,7 @@
         <!-- Custom Theme CSS -->
         <link href="../../static/css/custom.css" th:href="@{/static/css/custom.css}" rel="stylesheet" type="text/css" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        
+
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
 
@@ -62,15 +62,6 @@
                                                     <input type="submit" class="btn button-royola btn-block" value="-"/>
                         
                                                 </form>-->
-                        <div style="margin-top: 25px; margin-right: 10px" class="pull-right">
-                            <form method="POST" th:action="@{/stories/} + ${story.storyId} + @{/vote}">
-
-                                <input type="hidden" name="vote" value="-1"/>
-                                <button type="submit" class="btn button-royovote" value="-">
-                                    <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
-                                </button>
-                            </form>
-                        </div>
                         <div style="margin-top: 25px; margin-right:10px;" class="pull-right">
                             <form method="POST" th:action="@{/stories/} + ${story.storyId} + @{/vote}">
 
@@ -79,6 +70,15 @@
                                     <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
                                 </button>
 
+                            </form>
+                        </div>
+                        <div style="margin-top: 25px; margin-right: 10px" class="pull-right">
+                            <form method="POST" th:action="@{/stories/} + ${story.storyId} + @{/vote}">
+
+                                <input type="hidden" name="vote" value="-1"/>
+                                <button type="submit" class="btn button-royovote" value="-">
+                                    <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                </button>
                             </form>
                         </div>
                         <p th:text="${story.voteCount}">voteCount</p>

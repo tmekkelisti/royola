@@ -50,6 +50,38 @@ and open the template in the editor.
                     <div class="pull-right">
                         <p id="location" th:text="${story.location}">location</p>
                         <p id="date" th:text="${#calendars.format(story.storyDate,'dd/MM/yyyy HH:mm')}"></p>
+                        <!--                        <form method="POST" th:action="@{/stories/} + ${story.storyId} + @{/vote}">
+                        
+                                                    <input type="hidden" name="vote" value="1"/>
+                                                    <input type="submit" class="btn button-royola btn-block" value="+"/>
+                        
+                                                </form>
+                                                <form method="POST" th:action="@{/stories/} + ${story.storyId} + @{/vote}">
+                        
+                                                    <input type="hidden" name="vote" value="-1"/>
+                                                    <input type="submit" class="btn button-royola btn-block" value="-"/>
+                        
+                                                </form>-->
+                        <div style="margin-top: 25px; margin-right:10px;" class="pull-right">
+                            <form method="POST" th:action="@{/stories/} + ${story.storyId} + @{/vote}">
+
+                                <input type="hidden" name="vote" value="1"/>
+                                <button type="submit" class="btn button-royovote" value="+">
+                                    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                                </button>
+
+                            </form>
+                        </div>
+                        <div style="margin-top: 25px; margin-right: 10px" class="pull-right">
+                            <form method="POST" th:action="@{/stories/} + ${story.storyId} + @{/vote}">
+
+                                <input type="hidden" name="vote" value="-1"/>
+                                <button type="submit" class="btn button-royovote" value="-">
+                                    <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                                </button>
+                            </form>
+                        </div>
+                        <p th:text="${story.voteCount}">voteCount</p>
                     </div>
                     <br /><br /><br /><br />
                     <div class="story-content" id="story" th:utext="${story.content}"></div>

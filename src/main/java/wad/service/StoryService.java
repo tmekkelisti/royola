@@ -36,27 +36,25 @@ public class StoryService {
         Collections.reverse(stories);
         return stories;
     }
-    
-    
+
     public List<Story> listBest() {
-        
+
         List<Story> bestStories = storyRepository.findAll(sortByVoteCount());
         return bestStories;
     }
-       
-    private Sort sortByVoteCount(){
+
+    private Sort sortByVoteCount() {
         return new Sort(Sort.Direction.DESC, "voteCount");
     }
-    
 
-    public List<Story> listMostCommented(){
+    public List<Story> listMostCommented() {
         return storyRepository.findAll(sortByAmountOfComments());
     }
-    
-    private Sort sortByAmountOfComments(){
+
+    private Sort sortByAmountOfComments() {
         return new Sort(Sort.Direction.DESC, "amountOfComments");
     }
-    
+
     @Transactional
     public void addStory(Story story) {
         story.setAuthor(userService.getAuthenticatedPerson().getUsername());
@@ -83,21 +81,21 @@ public class StoryService {
     }
 
     public List<Comment> commentsListByAuthor(String author) {
-        
-        List<Comment> comments = commentRepo.findByAuthor(author); 
+
+        List<Comment> comments = commentRepo.findByAuthor(author);
         return comments;
     }
-    
-    public int amountOfComments(String author){
+
+    public int amountOfComments(String author) {
         return commentRepo.findByAuthor(author).size();
     }
-    
-    public List<Story> storiesListByAuthor(String author){
+
+    public List<Story> storiesListByAuthor(String author) {
         return storyRepository.findByAuthor(author);
     }
-    
-    public int amountOfStories(String author){
+
+    public int amountOfStories(String author) {
         return storyRepository.findByAuthor(author).size();
     }
-    
+
 }
