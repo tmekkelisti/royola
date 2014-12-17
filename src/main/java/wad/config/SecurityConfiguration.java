@@ -22,7 +22,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         filter.setForceEncoding(true);
         http.addFilterBefore(filter,CsrfFilter.class);
         http.authorizeRequests()
-                .antMatchers("/login", "/signup", "/", "/index", "index","/get/**", "/stories/**", "/static*/**", "/users/**", "/best").permitAll()
+                .antMatchers("/login", "/signup", "/", "/index", "index","/get/**", "/stories/**", "/static*/**", "/users/**", "/best", "/mostcommented").permitAll()
                 .anyRequest().authenticated();
 
         http.formLogin()
