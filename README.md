@@ -25,27 +25,29 @@ https://warm-temple-5596.herokuapp.com/
 
 todo:
 ------
+- moderointi
+
+inprogress:
+------
+- demo
+- ääkköset
+- testit!?
+     
+done:
+------
+- parhaat/uusimmat
 - kirjautumisen säätö
 - yksittäisen tarinan tarkastelu
 - linkit storiesin kautta tarinaan
 - käyttäjän tarinat
 - like/unlike
 - kommentointi
-- testaaminen/testit (highprio)
-
-inprogress:
-------
-- sovellus toimimaan herokussa (prio 1)
-- demo
-     
-done:
-------
 - bootstrap
 - listaa tarinat
 - tarinan poisto
 - käyttäjän kirjautuminen ja rekisteröinti
-- travis (done)
-- coveralls (done)
-- pari user storyy (done)
-- maili (ryhmä, opiskellijanrot,  aihe, githubrepo) (done)
-- alustava aihe (done)
+- travis
+- coveralls
+- pari user storyy
+- maili (ryhmä, opiskellijanrot,  aihe, githubrepo) 
+- alustava aihe
