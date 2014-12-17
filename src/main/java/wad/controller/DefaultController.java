@@ -52,6 +52,16 @@ public class DefaultController {
         model.addAttribute("frontpage", "Parhaimmat");
         return "index";
     }
+    
+    @RequestMapping(value = "/mostcommented", method = RequestMethod.GET)
+    public String viewMostCommented(Model model){
+        if (!storyService.list().isEmpty()) {
+            model.addAttribute("stories", storyService.listMostCommented());
+        }
+        model.addAttribute("user", currentUser());
+        model.addAttribute("frontpage", "Parhaimmat");
+        return "index";
+    }
 
     public String currentUser() {
         String user = "Not logged";

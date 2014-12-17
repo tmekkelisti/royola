@@ -43,12 +43,20 @@ public class StoryService {
         List<Story> bestStories = storyRepository.findAll(sortByVoteCount());
         return bestStories;
     }
-    
+       
     private Sort sortByVoteCount(){
         return new Sort(Sort.Direction.DESC, "voteCount");
     }
     
 
+    public List<Story> listMostCommented(){
+        return storyRepository.findAll(sortByAmountOfComments());
+    }
+    
+    private Sort sortByAmountOfComments(){
+        return new Sort(Sort.Direction.DESC, "amountOfComments");
+    }
+    
     @Transactional
     public void addStory(Story story) {
         story.setAuthor(userService.getAuthenticatedPerson().getUsername());
